@@ -38,7 +38,7 @@ $id = $_GET['uid'];
             }
           }
 ?>
-      <?php $getSubCategoriesData = getDataFromTables('service_details',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
+<?php $getSubCategoriesData = getDataFromTables('service_details',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
 $getSubCategories = $getSubCategoriesData->fetch_assoc();
 $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);
  ?>
@@ -56,40 +56,40 @@ $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeS
                     <select id="form-control-3" name="service_id" class="custom-select" data-error="This field is required." required>
                       <option value="">Select Category</option>
                       <?php while($row = $getCategories->fetch_assoc()) {  ?>
-                        <option value="<?php echo $row['id']; ?>" <?php if($row['id'] == $getSubCategories['category_id']) { echo "selected=selected"; }?> ><?php echo $row['name']; ?></option>
+                        <option value="<?php echo $row['id']; ?>" <?php if($row['id'] == $getSubCategories['service_id']) { echo "selected=selected"; }?> ><?php echo $row['name']; ?></option>
                     <?php } ?>
                    </select>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Bank Name</label>
-                    <input type="text" class="form-control" id="form-control-2" name="bank_name" required value="<?php echo $getTestimonials1['bank_name'];?>">
+                    <input type="text" class="form-control" id="form-control-2" name="bank_name" required value="<?php echo $getSubCategories['bank_name'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Interest rate Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="interest_rate_range" required value="<?php echo $getTestimonials1['interest_rate_range'];?>">
+                    <input type="text" class="form-control" id="form-control-2" name="interest_rate_range" required value="<?php echo $getSubCategories['interest_rate_range'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Process Fee Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="interest_rate_range" required value="<?php echo $getTestimonials1['process_fee_range'];?>">
+                    <input type="text" class="form-control" id="form-control-2" name="process_fee_range" required value="<?php echo $getSubCategories['process_fee_range'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Loan Amount</label>
-                    <input type="text" class="form-control" id="form-control-2" name="loan_amount" required value="<?php echo $getTestimonials1['loan_amount'];?>">
+                    <input type="text" class="form-control" id="form-control-2" name="loan_amount" required value="<?php echo $getSubCategories['loan_amount'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Tenture Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="tenture_range" required value="<?php echo $getTestimonials1['tenture_range'];?>">
+                    <input type="text" class="form-control" id="form-control-2" name="tenture_range" required value="<?php echo $getSubCategories['tenture_range'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
 
                   <div class="form-group">
                     <label for="form-control-4" class="control-label">Bank Logo</label>
-                    <img src="<?php echo $base_url . 'uploads/service_details_images/'.$getTestimonials1['bank_logo'] ?>"  id="output" height="100" width="100"/>
+                    <img src="<?php echo $base_url . 'uploads/service_details_images/'.$getSubCategories['bank_logo'] ?>"  id="output" height="100" width="100"/>
                     <label class="btn btn-default file-upload-btn">
                         Choose file...
                         <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="bank_logo" id="bank_logo"  onchange="loadFile(event)"  multiple="multiple" >
@@ -101,7 +101,7 @@ $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeS
                     <select id="form-control-3" name="status" class="custom-select" data-error="This field is required." required>
                       <option value="">Select Status</option>
                       <?php while($row = $getStatus->fetch_assoc()) {  ?>
-                          <option <?php if($row['id'] == $getTestimonials1['status']) { echo "Selected"; } ?> value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
+                          <option <?php if($row['id'] == $getSubCategories['status']) { echo "Selected"; } ?> value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
                       <?php } ?>
                    </select>
                     <div class="help-block with-errors"></div>
