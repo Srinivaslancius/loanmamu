@@ -12,7 +12,7 @@ if (!isset($_POST['submit']))  {
   $loan_amount = $_POST['loan_amount'];
   $tenture_range = $_POST['tenture_range'];
   $bank_logo = $_FILES["bank_logo"]["name"];
-  $status = $_POST['status'];
+  
   $created_at = date("Y-m-d h:i:s"); 
   
   if($bank_logo!='') {
@@ -22,7 +22,7 @@ if (!isset($_POST['submit']))  {
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     
     if (move_uploaded_file($_FILES["bank_logo"]["tmp_name"], $target_file)) {
-       $sql = "INSERT INTO service_details (`service_id`, `bank_name`, `bank_logo`,`interest_rate_range`, `process_fee_range`, `loan_amount`, `tenture_range`, `created_at`, `status`) VALUES ('$service_id', '$bank_name', '$bank_logo', '$interest_rate_range', '$process_fee_range', '$loan_amount', '$tenture_range', '$created_at','$status')";
+        $sql = "INSERT INTO service_details (`service_id`, `bank_name`, `bank_logo`,`interest_rate_range`, `process_fee_range`, `loan_amount`, `tenture_range`, `created_at`) VALUES ('$service_id', '$bank_name', '$bank_logo', '$interest_rate_range', '$process_fee_range', '$loan_amount', '$tenture_range', '$created_at')";
       
         if($conn->query($sql) === TRUE){
           echo "<script type='text/javascript'>window.location='service_details.php?msg=success'</script>";
@@ -90,17 +90,7 @@ if (!isset($_POST['submit']))  {
                       </label>
                   </div>
 
-                  <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
-                  <div class="form-group">
-                    <label for="form-control-3" class="control-label">Choose your status</label>
-                    <select id="form-control-3" name="status" class="custom-select" data-error="This field is required." required>
-                      <option value="">Select Status</option>
-                      <?php while($row = $getStatus->fetch_assoc()) {  ?>
-                          <option value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
-                      <?php } ?>
-                   </select>
-                    <div class="help-block with-errors"></div>
-                  </div>
+                  
                   <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>
                 </form>
               </div>
