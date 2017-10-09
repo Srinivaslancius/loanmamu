@@ -98,6 +98,14 @@
                 <span class="menu-text">FAQ'S</span>
               </a>
             </li>
+            <li  class="<?php if($page_name == 'service_details.php' || $page_name == 'add_service_details.php' || $page_name == 'edit_service_details.php') { echo "active"; } ?>">
+              <a href="service_details.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-comments  zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">Service Details</span>
+              </a>
+            </li>
             <li  class="<?php if($page_name == 'customer_enqueries.php') { echo "active"; } ?>">
               <a href="customer_enqueries.php" aria-haspopup="true">
                 <span class="menu-icon">
