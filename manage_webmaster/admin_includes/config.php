@@ -12,7 +12,7 @@ if($setcon == 1) {
 } else {
 	$servername = "192.168.0.105";	
 	$username = "root";
-	$password = "";
+	$password = "root";
 	$dbname = "loanmamu";
 }  
 
