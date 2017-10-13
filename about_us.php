@@ -57,8 +57,8 @@
 										<div class="bg-white bg-boxshadow pinside40 outline text-center mb30">
 											<div class="mb40"><i class="icon-phone-call icon-2x icon-default"></i></div>
 											<h2 class="capital-title">Call us at </h2>
-											<h1 class="text-big">800-123-456 / 789 </h1>
-											<p>lnfo@loanadvisor.com</p>
+											<h1 class="text-big"><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a> </h1>
+											<p><a href="mailto:<?php echo $getSiteSettingsData['email'];?>"><?php echo $getSiteSettingsData['email'];?></a></p>
 											<a href="#" class="btn-link">Contact us</a>
 										</div>
 										</center>

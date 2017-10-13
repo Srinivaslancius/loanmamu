@@ -3,21 +3,57 @@
 <?php $getTestmonialsData = getAllDataWithActiveRecent('testimonials');  ?>
     <div class="slider" id="slider">
         <!-- slider -->
-        <?php while ($row = $getBannersData->fetch_assoc()) { ?>
-            <div class="slider-img"><img src="<?php echo $base_url . 'uploads/banner_images/'.$row['banner'] ?>" alt="Loan Mamu" class="">
+    <div class="slider-img"><img src="images/slider-1.jpg" alt="Loan Mamu" class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="slider-captions">
+                          
+                            <h1 class="slider-title">Personal Loan to Suit Your Needs. </h1>
+                            <p class="slider-text hidden-xs">The low rate you need for the need you want! Call
+                                <br>
+                                <strong class="text-highlight">(555) 123-4567</strong></p>
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="slider-img"><img src="images/slider-2.jpg" alt="Loan Mamu" class="">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                             <div class="slider-captions">
-                              <?php echo $row['title'];?>                             
-                            </div>                        
+                                <!-- slider-captions -->
+                                <h1 class="slider-title"> Lowest Car Loan Rate <strong class="text-highlight">9.60%</strong> </h1>
+                                <p class="slider-text hidden-xs"> We provide an excellent service Loan company. Lorem ipsum simple dummy content goes here.</p>
+                               </div>
+                            <!-- /.slider-captions -->
                         </div>
                     </div>
                 </div>
             </div>
-        <?php } ?>
+        </div>
+		<div>
+            <div class="slider-img"><img src="images/slider-3.jpg" alt="Loan Mamu" class="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <div class="slider-captions">
+                               
+                                <h1 class="slider-title">Student Loans with Greate Rates <strong class="text-highlight">11.10%</strong></h1>
+                                <p class="slider-text hidden-xs">We provide an excellent service for all types of loans in
+                                    <br> ahmedabad and offer service, advice and direction.</p>
+                              </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-	<div class="rate-table">
+	 <div class="rate-table">
 	<div class="section-space20" style="padding-bottom:10px">
         <div class="container">
             <div class="row">
