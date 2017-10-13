@@ -1,6 +1,6 @@
 <?php include_once "main_header.php"; ?>
-<?php $getAboutUsData=getDataFromTables('content_pages','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL); 
-    $getAboutUs = $getAboutUsData->fetch_assoc();?>
+<?php $getAboutUsData = getDataFromTables('content_pages',$status=NULL,'id',1,$activeStatus=NULL,$activeTop=NULL);
+      $getAboutUs = $getAboutUsData->fetch_assoc();?>
     <div class="page-header">
         <div class="container">
             <div class="row">
