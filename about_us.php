@@ -1,4 +1,6 @@
 <?php include_once "main_header.php"; ?>
+<?php $getAboutUsData=getDataFromTables('content_pages','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL); 
+    $getAboutUs = $getAboutUsData->fetch_assoc();?>
     <div class="page-header">
         <div class="container">
             <div class="row">
@@ -23,8 +25,8 @@
                             <div class="row">
                                 <div class="col-md-offset-2 col-md-8 col-sm-12">
                                     <div class="text-center section-space50">
-                                        <h1>About Us</h1>
-                                        <p style="text-align:justify">Our goal at Insight Loan Advisors is to provide access to personal loans, car loan, at insight competitive interest raa timely mannerlorem ipsums deconse resonescon.Our goal at Insight Loan Advisors is to provide access to personal loans, car loan, at insight competitive interest raa timely mannerlorem ipsums deconse resonescon. Our goal at Insight Loan Advisors is to provide access to personal loans, car loan, at insight competitive interest raa timely mannerlorem ipsums deconse resonescon. Our goal at Insight Loan Advisors is to provide access to personal loans, car loan, at insight competitive interest raa timely mannerlorem ipsums deconse resonescon. Our goal at Insight Loan Advisors is to provide access to personal loans, car loan, at insight competitive interest raa timely mannerlorem ipsums deconse resonescon.</p>
+                                        <h1><?php echo $getAboutUs['title'] ?></h1>
+                                        <p style="text-align:justify"><?php echo $getAboutUs['description'] ?></p>
                                     </div>
                                 </div>
                             </div>
