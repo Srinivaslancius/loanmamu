@@ -58,10 +58,10 @@ $getSiteSettingsData  = $getData->fetch_assoc();
         <div class="container">
             <div class="row">
                 <div class="col-md-4 hidden-xs hidden-sm">
-                    <p class="mail-text">Welcome to our Loan Mamu</p>
+                    <p class="mail-text"><?php echo $getSiteSettingsData['admin_title'] ?></p>
                 </div>
                 <div class="col-md-8 col-sm-12 text-right col-xs-12">
-                    <div class="top-nav"><span class="top-text"><a href="#">+1800-123-4567</a></span> <span class="top-text"><a href="#">EMI calculator</a></span> </div>
+                    <div class="top-nav"><span class="top-text"><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a></span> <span class="top-text"><a href="#">EMI calculator</a></span> </div>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@ $getSiteSettingsData  = $getData->fetch_assoc();
                 <div class="col-md-2 col-sm-12 col-xs-6">
                     <!-- logo -->
                     <div class="logo">
-                        <a href="index.php"><img src="images/logo.png" alt="Loan Mamu"></a>
+                        <a href="index.php"><img src="uploads/logo/<?php echo $getSiteSettingsData['logo']; ?>" alt="Loan Mamu"></a>
                     </div>
                 </div>
                 <!-- logo -->

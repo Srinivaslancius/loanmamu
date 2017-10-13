@@ -1,3 +1,4 @@
+  
   <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12">
@@ -6,10 +7,10 @@
                         <p>Our goal at Loan Mamu is to provide access to personal loans and education loan, car loan, home loan at insight competitive interest rates lorem ipsums. We are the loan provider, you can use our loan product.</p>
                         <div class="row">
                             <div class="col-md-6 col-xs-6">
-                                <p class="address-text"><span><i class="icon-placeholder-3 icon-1x"></i> </span>3895 Sycamore Road Arlington, 97812 </p>
+                                <p class="address-text"><span><i class="icon-placeholder-3 icon-1x"></i> </span><?php echo $getSiteSettingsData['address'] ?></p>
                             </div>
                             <div class="col-md-6 col-xs-6">
-                                <p class="call-text"><span><i class="icon-phone-call icon-1x"></i></span>800-123-456</p>
+                                <p class="call-text"><span><i class="icon-phone-call icon-1x"></i></span><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a></p>
                             </div>
                         </div>
                     </div>
@@ -50,10 +51,10 @@
                     <div class="widget-social mt40">
                         <!-- widget footer -->
                         <ul class="listnone">
-                            <li><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i>Google Plus</a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i>Linked In</a></li>
+                            <li><a href="<?php echo $getSiteSettingsData['fb_link']; ?>" target="_blank"><i class="fa fa-facebook"></i>Facebook</a></li>
+                            <li><a href="<?php echo $getSiteSettingsData['twitter_link']; ?>" target="_blank"><i class="fa fa-google-plus"></i>Instagram</a></li>
+                            <li><a href="<?php echo $getSiteSettingsData['gplus_link']; ?>" target="_blank"><i class="fa fa-google-plus"></i>Youtube</a></li>
+                            <!-- <li><a href="#"><i class="fa fa-linkedin"></i>Youtube</a></li> -->
                         </ul>
                     </div>
                     <!-- /.widget footer -->
