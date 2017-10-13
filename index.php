@@ -386,6 +386,6 @@
     <script type="text/javascript" src="js/service-carousel.js"></script>
     <!-- Back to top script -->
     <script src="js/back-to-top.js" type="text/javascript"></script>
-	<script src="js/preloader.js"></script>
+
 </body>
 </html>

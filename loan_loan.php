@@ -602,7 +602,7 @@
     
     <!-- Back to top script -->
     <script src="js/back-to-top.js" type="text/javascript"></script>
-	<script src="js/preloader.js"></script>
+	
 
 	<script>
 		var showDetails = function(value){			
