@@ -83,13 +83,13 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="form-control-2" class="control-label">Instagram Link</label>
+                    <label for="form-control-2" class="control-label">Google Plus Link</label>
                     <input type="url" name="twitter_link" class="form-control" id="form-control-2" placeholder="Instagram Link" data-error="Please enter a valid Instagram Link." value="<?php echo $getSiteSettingsData['twitter_link'];?>" required>
                     <div class="help-block with-errors"></div>
                   </div>
 
                   <div class="form-group">
-                    <label for="form-control-2" class="control-label">Youtube Link</label>
+                    <label for="form-control-2" class="control-label">Linkdin Link</label>
                     <input type="url" name="gplus_link" class="form-control" id="form-control-2" placeholder="Youtube Link" data-error="Please enter a valid Youtube Link." value="<?php echo $getSiteSettingsData['gplus_link'];?>" required>
                     <div class="help-block with-errors"></div>
                   </div>

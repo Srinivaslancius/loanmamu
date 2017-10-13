@@ -58,7 +58,7 @@ $getSiteSettingsData  = $getData->fetch_assoc();
         <div class="container">
             <div class="row">
                 <div class="col-md-4 hidden-xs hidden-sm">
-                    <p class="mail-text"><?php echo $getSiteSettingsData['admin_title'] ?></p>
+                    <p class="mail-text">Welcome to our Loan Mamu</p>
                 </div>
                 <div class="col-md-8 col-sm-12 text-right col-xs-12">
                     <div class="top-nav"><span class="top-text"><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a></span> <span class="top-text"><a href="#">EMI calculator</a></span> </div>

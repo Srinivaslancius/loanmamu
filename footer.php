@@ -1,10 +1,11 @@
-  
+  <?php $getAboutUsData = getDataFromTables('content_pages',$status=NULL,'id',1,$activeStatus=NULL,$activeTop=NULL);
+      $getAboutUs = $getAboutUsData->fetch_assoc();?>
   <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="widget-text mt40">
                         <!-- widget text -->
-                        <p>Our goal at Loan Mamu is to provide access to personal loans and education loan, car loan, home loan at insight competitive interest rates lorem ipsums. We are the loan provider, you can use our loan product.</p>
+                        <p><?php echo substr(strip_tags($getAboutUs['description']), 0,199);?>.</p>
                         <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <p class="address-text"><span><i class="icon-placeholder-3 icon-1x"></i> </span><?php echo $getSiteSettingsData['address'] ?></p>
@@ -52,8 +53,8 @@
                         <!-- widget footer -->
                         <ul class="listnone">
                             <li><a href="<?php echo $getSiteSettingsData['fb_link']; ?>" target="_blank"><i class="fa fa-facebook"></i>Facebook</a></li>
-                            <li><a href="<?php echo $getSiteSettingsData['twitter_link']; ?>" target="_blank"><i class="fa fa-google-plus"></i>Instagram</a></li>
-                            <li><a href="<?php echo $getSiteSettingsData['gplus_link']; ?>" target="_blank"><i class="fa fa-google-plus"></i>Youtube</a></li>
+                            <li><a href="<?php echo $getSiteSettingsData['twitter_link']; ?>" target="_blank"><i class="fa fa-google-plus"></i>Google Plus</a></li>
+                            <li><a href="<?php echo $getSiteSettingsData['gplus_link']; ?>" target="_blank"><i class="fa fa-linkedin"></i>Linked In</a></li>
                             <!-- <li><a href="#"><i class="fa fa-linkedin"></i>Youtube</a></li> -->
                         </ul>
                     </div>
