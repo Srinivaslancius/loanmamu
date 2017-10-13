@@ -256,10 +256,10 @@
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="testimonial-block mb30">
                         <div class="bg-white pinside30 mb20"  style="padding:30px">
-                            <p class="testimonial-text"> “ <?php echo $row['description']; ?> ”</p>
+                            <p class="testimonial-text"><?php echo $row['description']; ?></p>
                         </div>
                         <div class="testimonial-autor-box">
-                            <div class="testimonial-img pull-left"> <img src="<?php echo $base_url . 'uploads/testimonial_images/'.$row['image'] ?>" alt="Loan Mamu"> </div>
+                            <div class="testimonial-img pull-left"> <img src="<?php echo $base_url . 'uploads/testimonial_images/'.$row['image'] ?>" alt="Loan Mamu" style="width:71px; height:72px;"> </div>
                             <div class="testimonial-autor pull-left">
                                 <h4 class="testimonial-name"><?php echo $row['title']; ?></h4>
                             </div>
