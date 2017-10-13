@@ -1,5 +1,6 @@
 <?php include_once "main_header.php"; ?>
 <?php $getBannersData = getAllDataWithActiveRecent('banners');  ?>
+<?php $getTestmonialsData = getAllDataWithActiveRecent('testimonials');  ?>
     <div class="slider" id="slider">
         <!-- slider -->
         <?php while ($row = $getBannersData->fetch_assoc()) { ?>
@@ -215,71 +216,21 @@
             </div>
             <div class="row">
                 <div class="service" id="service">
+                <?php while ($row = $getTestmonialsData->fetch_assoc()) { ?>
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="testimonial-block mb30">
                         <div class="bg-white pinside30 mb20"  style="padding:30px">
-                            <p class="testimonial-text"> “I loved the customer service you guys provided me. That was very nice and patient with questions I had. I would really like definitely come back here”</p>
+                            <p class="testimonial-text"> “ <?php echo $row['description']; ?> ”</p>
                         </div>
                         <div class="testimonial-autor-box">
-                            <div class="testimonial-img pull-left"> <img src="images/testimonial-img.jpg" alt="Loan Mamu"> </div>
+                            <div class="testimonial-img pull-left"> <img src="<?php echo $base_url . 'uploads/testimonial_images/'.$row['image'] ?>" alt="Loan Mamu"> </div>
                             <div class="testimonial-autor pull-left">
-                                <h4 class="testimonial-name">Donny J. Griffin</h4>
-                                <span class="testimonial-meta">Personal Loan</span> </div>
+                                <h4 class="testimonial-name"><?php echo $row['title']; ?></h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="testimonial-block mb30">
-                        <div class="bg-white pinside30 mb20"  style="padding:30px">
-                            <p class="testimonial-text"> “I loved the customer service you guys provided me. That was very nice and patient with questions I had. I would really like definitely come back here”</p>
-                        </div>
-                        <div class="testimonial-autor-box">
-                            <div class="testimonial-img pull-left"> <img src="images/testimonial-img.jpg" alt="Loan Mamu"> </div>
-                            <div class="testimonial-autor pull-left">
-                                <h4 class="testimonial-name">Donny J. Griffin</h4>
-                                <span class="testimonial-meta">Personal Loan</span> </div>
-                        </div>
-                    </div>
-                </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="testimonial-block mb30">
-                        <div class="bg-white pinside30 mb20"  style="padding:30px">
-                            <p class="testimonial-text"> “I loved the customer service you guys provided me. That was very nice and patient with questions I had. I would really like definitely come back here”</p>
-                        </div>
-                        <div class="testimonial-autor-box">
-                            <div class="testimonial-img pull-left"> <img src="images/testimonial-img.jpg" alt="Loan Mamu"> </div>
-                            <div class="testimonial-autor pull-left">
-                                <h4 class="testimonial-name">Donny J. Griffin</h4>
-                                <span class="testimonial-meta">Personal Loan</span> </div>
-                        </div>
-                    </div>
-                </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="testimonial-block mb30">
-                        <div class="bg-white pinside30 mb20"  style="padding:30px">
-                            <p class="testimonial-text"> “I loved the customer service you guys provided me. That was very nice and patient with questions I had. I would really like definitely come back here”</p>
-                        </div>
-                        <div class="testimonial-autor-box">
-                            <div class="testimonial-img pull-left"> <img src="images/testimonial-img.jpg" alt="Loan Mamu"> </div>
-                            <div class="testimonial-autor pull-left">
-                                <h4 class="testimonial-name">Donny J. Griffin</h4>
-                                <span class="testimonial-meta">Personal Loan</span> </div>
-                        </div>
-                    </div>
-                </div>
-                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="testimonial-block mb30">
-                        <div class="bg-white pinside30 mb20"  style="padding:30px">
-                            <p class="testimonial-text"> “I loved the customer service you guys provided me. That was very nice and patient with questions I had. I would really like definitely come back here”</p>
-                        </div>
-                        <div class="testimonial-autor-box">
-                            <div class="testimonial-img pull-left"> <img src="images/testimonial-img.jpg" alt="Loan Mamu"> </div>
-                            <div class="testimonial-autor pull-left">
-                                <h4 class="testimonial-name">Donny J. Griffin</h4>
-                                <span class="testimonial-meta">Personal Loan</span> </div>
-                        </div>
-                    </div>
-                </div>
+                  </div>
+                <?php } ?>                 
                 </div>
             </div>
         </div>
