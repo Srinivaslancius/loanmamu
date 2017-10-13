@@ -20,7 +20,7 @@ $getSiteSettingsData  = $getData->fetch_assoc();
     <link href="css/style.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/fontello.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/animsition.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/animsition.min.css"> -->
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Merriweather:300,300i,400,400i,700,700i" rel="stylesheet">
     <!-- owl Carousel Css -->
@@ -33,7 +33,7 @@ $getSiteSettingsData  = $getData->fetch_assoc();
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<style>
+	<!-- <style>
 		#preloader { 
 			position: fixed; 
 			left: 0; 
@@ -44,7 +44,7 @@ $getSiteSettingsData  = $getData->fetch_assoc();
 			overflow: visible; 
 			background: #333 url('images/loading.gif') no-repeat center center; 
 		}
-	</style>
+	</style> -->
 </head>
 <?php
     $currentFile = $_SERVER["PHP_SELF"];
