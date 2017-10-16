@@ -13,6 +13,8 @@
                   <tr>
                     <th>Id</th>
                     <th>Name</th>
+                    <th>Logo</th>
+                    <th>Description</th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>
