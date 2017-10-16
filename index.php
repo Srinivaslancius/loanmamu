@@ -9,12 +9,8 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div class="slider-captions">
-                          
-                            <!-- <h1 class="slider-title">Personal Loan to Suit Your Needs. </h1>
-                            <p class="slider-text hidden-xs">The low rate you need for the need you want! Call -->
                                 <?php echo $row['title']; ?>
-                                <br>
-                                <!-- <strong class="text-highlight">(555) 123-4567</strong> --></p>
+                
                           </div>
                         
                     </div>
