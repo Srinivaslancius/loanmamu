@@ -14,7 +14,7 @@ $getSiteSettingsData  = $getData->fetch_assoc();
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <title>Loan Mamu - A Loan Company</title>
+    <title><?php echo $getSiteSettingsData['admin_title']; ?></title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
