@@ -155,8 +155,63 @@ $msgClass = '';
                                 </div>
                             </div>
                         </div>
-                        <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.316983494!2d78.26795745698291!3d17.41229980019287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C+Telangana!5e0!3m2!1sen!2sin!4v1507031550328" width="100%" height="420" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+                    <?php $getContactData = getIndividualDetails('2',"content_pages","id"); 
+                      $address =$getContactData['description']; // Google HQ
+                      $prepAddr = str_replace(' ','+',$address);
+                      $geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+                      $output= json_decode($geocode);
+                      $latitude = $output->results[0]->geometry->location->lat;
+                      $longitude = $output->results[0]->geometry->location->lng;?>
+                    <!-- <div class="container"> -->
+                        <div class="row">                               
+                            <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
+                                <div id="map" style="display:block; height: 450px;"></div>                               
+                                <div id="message"> <?php echo $getContactData['description']; ?></div>
+                                <script src="http://maps.google.com/maps/api/js?key=AIzaSyBVrJ2liXFjw8-SbN6TNzQUtHmmLqCFT2Y"
+                                    type="text/javascript"></script>
+                                <script type="text/javascript">
+                                    var map;
+                                    var infowindow = new google.maps.InfoWindow({
+                                        content: document.getElementById('message')
+                                    });
+                                    function initialize() {
+                                        // Set static latitude, longitude value
+                                        var latlng = new google.maps.LatLng(<?php echo $latitude; ?>, <?php echo $longitude; ?>);
+                                        // Set map options
+                                        var myOptions = {
+                                            zoom: 16,
+                                            center: latlng,
+                                            panControl: true,
+                                            zoomControl: true,
+                                            scaleControl: true,
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                                        }
+                                        // Create map object with options
+                                        map = new google.maps.Map(document.getElementById("map"), myOptions);
+                                    <?php
+
+
+                                            echo "addMarker(new google.maps.LatLng(".$latitude.", ".$longitude."), map);";
+                                    ?>
+                                    }
+                                    function addMarker(latLng, map) {
+                                        var marker = new google.maps.Marker({
+                                            position: latLng,
+                                            map: map,
+                                            draggable: true, // enables drag & drop
+                                            animation: google.maps.Animation.DROP
+                                        });
+                                        google.maps.event.addListener(marker, 'click', function() {
+                                            infowindow.open(map, marker);
+                                          });
+
+                                        return marker;
+                                    }
+                                    google.maps.event.addDomListener(window, 'load', initialize);
+                                </script>   
+                            </div>
+                        </div>
+                   <!--  </div> -->
                     </div>
                 </div>
             </div>
