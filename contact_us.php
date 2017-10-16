@@ -85,28 +85,28 @@
                                     <div class="bg-boxshadow pinside60 outline text-center mb30">
                                         <div class="mb40"><i class="icon-briefcase icon-2x icon-default"></i></div>
                                         <h2 class="capital-title">Branch Office</h2>
-                                        <p>2843 Lakewood Drive
-                                            <br> Jersey City, CA 07304</p>
+                                        <p><?php echo $getSiteSettingsData['address'] ?></p>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-xs-12">
                                     <div class="bg-boxshadow pinside60 outline text-center mb30">
                                         <div class="mb40"><i class="icon-phone-call icon-2x icon-default"></i></div>
                                         <h2 class="capital-title">Call us at </h2>
-                                        <h1 class="text-big">800-123-456 / 789 </h1>
+                                        <h1 class="text-big"><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a> </h1>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-xs-12">
                                     <div class="bg-boxshadow pinside60 outline text-center mb30">
                                         <div class="mb40"> <i class="icon-letter icon-2x icon-default"></i></div>
                                         <h2 class="capital-title">Email Address</h2>
-                                        <center><p>lnfo@loanadvisor.com</p></center>
+                                        <center><p><a href="mailto:<?php echo $getSiteSettingsData['email'];?>"><?php echo $getSiteSettingsData['email'];?></a></p></center>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="map">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.316983494!2d78.26795745698291!3d17.41229980019287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C+Telangana!5e0!3m2!1sen!2sin!4v1507031550328" width="100%" height="420" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+						 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.316983494!2d78.26795745698291!3d17.41229980019287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C+Telangana!5e0!3m2!1sen!2sin!4v1507031550328" width="100%" height="420" frameborder="0" style="border:0" allowfullscreen></iframe> 
+                        </div>
                     </div>
                 </div>
             </div>
