@@ -6,12 +6,12 @@ $msgClass = '';
     if(isset($_POST['submit'])){
         // Get the submitted form data
         $name = $_POST['name'];
-        $email = "srinivas@lanciussolutions.com"
+        $email = $_POST['email'];
         $phone = $_POST['phone'];
         $message = $_POST['message'];
         
         // Check whether submitted data is not empty
-        if(!empty($name) && !empty($phone) && !empty($inquiry)){
+        if(!empty($email) && !empty($name) && !empty($phone) && !empty($inquiry)){
             
             if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
                 $statusMsg = 'Please enter your valid email.';
@@ -50,7 +50,7 @@ $msgClass = '';
             $msgClass = 'errordiv';
         }
     } ?>
-	<div class="page-header">
+    <div class="page-header">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -156,7 +156,7 @@ $msgClass = '';
                             </div>
                         </div>
                         <div class="map">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.316983494!2d78.26795745698291!3d17.41229980019287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C+Telangana!5e0!3m2!1sen!2sin!4v1507031550328" width="100%" height="420" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.316983494!2d78.26795745698291!3d17.41229980019287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C+Telangana!5e0!3m2!1sen!2sin!4v1507031550328" width="100%" height="420" frameborder="0" style="border:0" allowfullscreen></iframe></div>
                     </div>
                 </div>
             </div>
@@ -189,6 +189,6 @@ $msgClass = '';
     <script type="text/javascript" src="js/sticky-header.js"></script>
     <!-- Back to top script -->
     <script src="js/back-to-top.js" type="text/javascript"></script>
-	
+    
 </body>
 </html>
