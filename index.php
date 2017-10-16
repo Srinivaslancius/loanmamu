@@ -87,7 +87,11 @@
                             <h2><a href="#" class="title"><?php echo $row['name']; ?></a></h2>
                             <p><?php echo $row['description']; ?></p>
                             <a href="#" class="btn-link">Read More</a> </div>
-                    </div>                   
+                    </div>
+                    
+                
+                    
+                    
                     <?php } ?>
                 </div>
             </div>
