@@ -155,28 +155,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4 col-xs-12">
-                                    <div class="bg-boxshadow pinside60 outline text-center mb30">
-                                        <div class="mb40"><i class="icon-briefcase icon-2x icon-default"></i></div>
-											<h2 class="capital-title">Branch Office</h2>
-											<p>2843 Lakewood Drive
-												<br> Jersey City, CA 07304</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-xs-12">
-                                    <div class="bg-boxshadow pinside60 outline text-center mb30">
-                                        <div class="mb40"><i class="icon-phone-call icon-2x icon-default"></i></div>
-											<h2 class="capital-title">Call us at </h2>
-											<h1 class="text-big">800-123-456 / 789 </h1>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-xs-12">
-                                    <div class="bg-boxshadow pinside60 outline text-center mb30">
-                                        <div class="mb40"> <i class="icon-letter icon-2x icon-default"></i></div>
-											<h2 class="capital-title">Email Address</h2>
-											<p>lnfo@loanadvisor.com</p>
-                                    </div>
-                                </div>
+                                <?php include_once "information.php"; ?>
                             </div>
                         </div>
                       
