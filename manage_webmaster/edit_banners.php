@@ -48,7 +48,7 @@ $getBanners = $getBannersData->fetch_assoc();
                 <form data-toggle="validator" method="post" enctype="multipart/form-data">
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Title</label>
-                    <input type="text" class="form-control" id="form-control-2" name="title" required value="<?php echo $getBanners['title'];?>">
+                    <textarea name="title" class="form-control" id="description" placeholder="Description" data-error="Please enter Description." required><?php echo $getBanners['title'];?></textarea>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
@@ -80,4 +80,15 @@ $getBanners = $getBannersData->fetch_assoc();
       </div>
       <?php include_once 'admin_includes/footer.php'; ?>
    <script src="js/tables-datatables.min.js"></script>
+<!-- Below script for ck editor -->
+
+<script src="//cdn.ckeditor.com/4.7.0/full/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'title' ); 
+</script>
+<style type="text/css">
+    .cke_top, .cke_contents, .cke_bottom {
+        border: 1px solid #333;
+    }
+</style>
 

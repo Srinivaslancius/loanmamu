@@ -45,58 +45,10 @@
             </div>
           </a>
         </div>
-        <div class="col-md-6 m-b-30">
+        <!-- <div class="col-md-6 m-b-30">
           <h4 class="m-t-0 m-b-30">Pie chart</h4>
           <div id="pie" style="height: 300px"></div>
-        </div>
+        </div> -->
       </div>
      <?php include_once 'admin_includes/footer.php'; ?>
-     <script src="js/charts-flot.min.js"></script>
-     <script type="text/javascript">
-            $(document).ready(function() {
-                
-                var pie = function () {
-                    var data = [{
-                        label: "Users",
-                        data: <?php echo getRowsCount('users')?>,
-                        color: "#1d87e4",
-                    }, {
-                        label: "Admin Users",
-                        data: <?php echo getRowsCount('admin_users')?>,
-                        color: "#34a853",
-                    }, {
-                        label: "Services",
-                        data: <?php echo getRowsCount('services')?>,
-                        color: "#7d57c1",
-                    }];
-                    var options = {
-                        series: {
-                            pie: {
-                                show: true
-                            }
-                        },
-                        legend: {
-                            labelFormatter: function(label, series){
-                                return '<span class="pie-chart-legend">'+label+'</span>';
-                            }
-                        },
-                        grid: {
-                            hoverable: true
-                        },
-                        tooltip: true,
-                        tooltipOpts: {
-                            content: "%p.0%, %s",
-                            shifts: {
-                                x: 20,
-                                y: 0
-                            },
-                            defaultTheme: false
-                        }
-                    };
-                    $.plot($("#pie"), data, options);
-                };
-
-                pie();
-               
-            });
-        </script>
+     
