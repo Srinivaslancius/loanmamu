@@ -2,6 +2,7 @@
 <?php $getBannersData = getAllDataWithActiveRecent('banners');  ?>
 <?php $getTestmonialsData = getAllDataWithActiveRecent('testimonials');  ?>
 <?php $getServicesData = getAllDataWithActiveRecent('services');  ?>
+<?php $getServicesData1 = getAllDataWithActiveRecent('services');  ?>
     <div class="slider" id="slider">
         <!-- slider -->
         <?php while ($row = $getBannersData->fetch_assoc()) { ?>
@@ -24,43 +25,17 @@
         <div class="container">
             <div class="row">
                 <div class="service" id="service">
+                    <?php while ($row = $getServicesData1->fetch_assoc()) { ?>
                     <div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="rate-counter-block">
-                            <div class="icon rate-icon"> <img src="images/loane-01.svg" alt="Loan Mamu" class="icon-svg-1x"></div>
+                            <div class="icon rate-icon"> <img src="<?php echo $base_url . 'uploads/service_images/'.$row['image'] ?>" alt="Loan Mamu" class="icon-svg-1x"></div>
                             <div class="rate-box">
-                            <h1 class="loan-rate">9.00%</h1>
-                            <small class="rate-title">Credit card</small>
+                            <h1 class="loan-rate"><?php echo $row['service_percentage']; ?></h1>
+                            <small class="rate-title"><?php echo $row['name']; ?></small>
                         </div>
-                        
 					</div>	
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                       <div class="rate-counter-block">
-                            <div class="icon rate-icon"> <img src="images/car1-01.svg" alt="Loan Mamu" class="icon-svg-1x"></div>
-                        <div class="rate-box">
-                            <h1 class="loan-rate">6.70%</h1>
-                            <small class="rate-title">Car Loans</small>
-                        </div>
-                         </div>      
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                         <div class="rate-counter-block">
-                        <div class="icon rate-icon"> <img src="images/business_loan-01.svg" alt="Loan Mamu" class="icon-svg-1x"></div>
-                        <div class="rate-box">
-                            <h1 class="loan-rate">8.96%</h1>
-                            <small class="rate-title">Personal Loans</small>
-                        </div>
-                    </div>
-					</div>
-                     <div class="col-md-12 col-sm-12 col-xs-12">
-                      <div class="rate-counter-block">
-                        <div class="icon rate-icon  "> <img src="images/Mortgage_Loan-01.svg" alt="Loan Mamu" class="icon-svg-1x"></div>
-                        <div class="rate-box">
-                            <h1 class="loan-rate">8.96%</h1>
-                            <small class="rate-title">Business Loans</small>
-                        </div>
-                    </div>
-					</div>
+                    </div> 
+                    <?php } ?>
                 </div>
             </div>
         </div>
