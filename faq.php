@@ -1,4 +1,5 @@
 <?php include_once "main_header.php"; ?>
+ <?php $getAllActiveFaqs = getAllDataWithActiveRecent('faqs',0); ?>
     <div class="page-header">
         <div class="container">
             <div class="row">
@@ -30,62 +31,18 @@
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 st-accordion col-xs-12">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                                        <?php $i=1; while($getAllData=$getAllActiveFaqs->fetch_assoc()) { ?>
                                         <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingOne">
-                                                <h4 class="panel-title"> <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">How much can I borrow?</a> </h4>
+                                            <div class="panel-heading" role="tab" id="heading<?php echo $i; ?>">
+                                                <h4 class="panel-title"> <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i; ?>" aria-expanded="true" aria-controls="collapse<?php echo $i; ?>"><?php echo $getAllData['question']; ?></a> </h4>
                                             </div>
-                                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                                <div class="panel-body">Donec porttitor enim sed justo egestas vehicula. Maecenas interdum, urna quis facilisis elementum, lectus mi tristique turpis, dapibus suscipit tellus dui euismSed ullamcorper onsectetur velit. Curabitur luctus et arcu eget sodales.</div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingTwo">
-                                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Can I pay off my loan early?</a> </h4>
-                                            </div>
-                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</div>
+                                            <div id="collapse<?php echo $i; ?>" class="panel-collapse collapse <?php if($i==1) { ?> in <?php } else { } ?>" role="tabpanel" aria-labelledby="heading<?php echo $i; ?>">
+                                                <div class="panel-body"><?php echo $getAllData['answer']; ?></div>
                                             </div>
                                         </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Do you offering refinancing ?</a> </h4>
-                                            </div>
-                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFour">
-                                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">When should i apply?</a> </h4>
-                                            </div>
-                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                                                <div class="panel-body">Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. </div>
-                                            </div>
-                                        </div>
-										<div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFour">
-                                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">When should i apply?</a> </h4>
-                                            </div>
-                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                                                <div class="panel-body">Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. </div>
-                                            </div>
-                                        </div>
-										<div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Do you offering refinancing ?</a> </h4>
-                                            </div>
-                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. </div>
-                                            </div>
-                                        </div>
-										<div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFour">
-                                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">When should i apply?</a> </h4>
-                                            </div>
-                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                                                <div class="panel-body">Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. </div>
-                                            </div>
-                                        </div>
+                                        <?php $i++; } ?>
+                                        
                                     </div>
                                 </div>
                             </div>
