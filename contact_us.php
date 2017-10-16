@@ -6,12 +6,12 @@ $msgClass = '';
     if(isset($_POST['submit'])){
         // Get the submitted form data
         $name = $_POST['name'];
-        $email = "srinivas@lanciussolutions.com"
+        $email = $_POST['email'];
         $phone = $_POST['phone'];
         $message = $_POST['message'];
         
         // Check whether submitted data is not empty
-        if(!empty($name) && !empty($phone) && !empty($inquiry)){
+        if(!empty($email) && !empty($name) && !empty($phone) && !empty($inquiry)){
             
             if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
                 $statusMsg = 'Please enter your valid email.';
