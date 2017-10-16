@@ -1,4 +1,37 @@
 <?php include_once "main_header.php"; ?>
+<?php
+if (!isset($_POST['submit']))  {
+  //If fail
+  echo "fail";
+} else  {
+  //If success
+  $name = $_POST['name'];
+  $experience = $_POST['experience'];
+  $email = $_POST['email'];
+  $resume_title = $_POST['resume_title'];
+  $mobile = $_POST['mobile'];
+  $fileToUpload = $_FILES["fileToUpload"]["name"];
+  $created_at = date("Y-m-d h:i:s");
+  if($fileToUpload!='') {
+
+    $target_dir = "uploads/resumes/";
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+         $sql = "INSERT INTO posted_resumes (`name`,`experience`,`email`,`resume_title`,`mobile`,`resumes`,`created_at`) VALUES ('$name','$experience','$email', '$resume_title','$mobile', '$fileToUpload', '$created_at')";
+        if($conn->query($sql) === TRUE){
+          echo "<script type='text/javascript'>window.location='current_openings.php?msg=success'</script>";
+        }else {
+          echo "<script type='text/javascript'>window.location='current_openings.php?msg=fail'</script>";
+        }
+        //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+  }
+}
+?>
 	<div class="page-header">
         <div class="container">
             <div class="row">
@@ -29,7 +62,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <form class="contact-us" method="post" action="">
+                                    <form class="contact-us" method="post"  enctype="multipart/form-data">
                                         <div class=" ">
 											<div class="row">
                                             <!-- Text input-->
@@ -47,17 +80,6 @@
                                             <!-- Text input-->
 											<div class="row">
 												<div class="col-md-3 col-sm-12 col-xs-12">
-												</div>
-												<div class="col-md-4 col-sm-12 col-xs-12">
-													<div class="form-group">
-														Skills Required:<label for="sel1"></label>
-														<select class="form-control" id="sel1">
-															<option>select</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-														  </select>
-													</div>
 												</div>
 												<div class="col-md-5 col-sm-12 col-xs-12">
 												</div>
@@ -82,7 +104,7 @@
 												<div class="col-md-4 col-sm-12 col-xs-12">
 													<div class="form-group">
 														Email:<label class="sr-only control-label" for="email">Email<span class=" "> </span></label>
-														<input id="email" name="email" type="email" placeholder="Email" class="form-control input-md" required>
+														<input type="email" id="email" name="email"  placeholder="Email" class="form-control input-md" required>
 													</div>
 												</div>
 												<div class="col-md-5 col-sm-12 col-xs-12">
@@ -95,7 +117,7 @@
 												<div class="col-md-4 col-sm-12 col-xs-12">
 													<div class="form-group">
 														Resume Title:<label class="sr-only control-label" for="email">Resume Title<span class=" "> </span></label>
-														<input id="resume" name="resume" type="resume" placeholder="Resume Title" class="form-control input-md" required>
+														<input id="resume_title" name="resume_title" type="resume" placeholder="Resume Title" class="form-control input-md" required>
 													</div>
 												</div>
 												<div class="col-md-5 col-sm-12 col-xs-12">
@@ -108,7 +130,7 @@
 												<div class="col-md-4 col-sm-12 col-xs-12">
 													<div class="form-group">
 														Phone:<label class="sr-only control-label" for="phone">Phone<span class=" "> </span></label>
-														<input id="phone" name="phone" type="text" placeholder="Phone" class="form-control input-md" required>
+														<input id="mobile" name="mobile" type="text" placeholder="Phone" class="form-control input-md" required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)">
 													</div>
 												</div>
 												<div class="col-md-5 col-sm-12 col-xs-12">
@@ -119,8 +141,8 @@
 												</div>
 												<div class="col-md-4 col-sm-12 col-xs-12">
 													<div class="form-group">
-														<label for="exampleInputFile">Upload Resume</label>
-														<input type="file" id="exampleInputFile">
+														<label for="fileToUpload">Upload Resume</label>
+														<input type="file" id="fileToUpload" name = "fileToUpload" accept=".doc, .docx">
 													</div>
 												</div>
 												<div class="col-md-5 col-sm-12 col-xs-12">
@@ -132,7 +154,7 @@
 												<div class="col-md-3 col-sm-12 col-xs-12">
 												</div>
 												<div class="col-md-4 col-sm-12 col-xs-12">
-													<button type="submit" class="btn btn-default">Submit</button>
+													<button type="submit" name="submit" class="btn btn-default">Submit</button>
 												</div>
 												<div class="col-md-5 col-sm-12 col-xs-12">
 												</div>
@@ -194,3 +216,15 @@
 	
 </body>
 </html>
+
+<script type="text/javascript">
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+  }
+</script>
+
+
+

@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                        <div class="slider-captions">
+                        <div class="slider-captions" style="color:#FFFFFF">
                                 <?php echo $row['title']; ?>
                           </div>
                     </div>
