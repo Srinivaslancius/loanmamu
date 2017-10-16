@@ -42,7 +42,7 @@
 									</div>
 								</div>
 								<div class="row" style="padding-right:25px">
-									<?php include_once "information.php"; ?>
+									<?php include_once "support.php"; ?>
 								</div>
 							</div>
 						</div>

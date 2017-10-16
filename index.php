@@ -1,6 +1,7 @@
 <?php include_once "main_header.php"; ?>
 <?php $getBannersData = getAllDataWithActiveRecent('banners');  ?>
 <?php $getTestmonialsData = getAllDataWithActiveRecent('testimonials');  ?>
+<?php $getServicesData = getAllDataWithActiveRecent('services');  ?>
     <div class="slider" id="slider">
         <!-- slider -->
         <?php while ($row = $getBannersData->fetch_assoc()) { ?>
@@ -79,41 +80,15 @@
             </div>
             <div class="row">
                 <div class="service" id="service">
+                    <?php while ($row = $getServicesData->fetch_assoc()) { ?>
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="bg-white pinside40">
-                            <div class="icon mb40"> <img src="images/business_loan-01.svg" alt="Loan Mamu" class="icon-svg-2x"> </div>
-                            <h2><a href="#" class="title">Personal Loan</a></h2>
-                            <p>Lorem ipsum dolor sit ameectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque</p>
+                            <div class="icon mb40"> <img src="<?php echo $base_url . 'uploads/service_images/'.$row['image'] ?>" alt="Loan Mamu" class="icon-svg-2x"> </div>
+                            <h2><a href="#" class="title"><?php echo $row['name']; ?></a></h2>
+                            <p><?php echo $row['description']; ?></p>
                             <a href="#" class="btn-link">Read More</a> </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="bg-white pinside40 service-block outline mb30">
-                            <div class="icon mb40"> <img src="images/mortgage.svg" alt="Loan Mamu" class="icon-svg-2x"></div>
-                            <h2><a href="#" class="title">Home Loan</a></h2>
-                            <p>Sed ut perspiciatis unde omnis rror sit voluptatem accusan tium dolo remque laudantium, totam rem aperiam, eaque ipsa </p>
-                            <a href="#" class="btn-link">Read More</a> </div>
-                    </div>
-                <!--    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="bg-white pinside40 service-block outline mb30">
-                            <div class="icon mb40"> <img src="images/piggy-bank.svg" alt="Loan Mamu" class="icon-svg-2x"></div>
-                            <h2><a href="#" class="title">Education Loan</a></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elmodo ligula eget dolor. Aenean massa. Cum sociis natoque</p>
-                            <a href="#" class="btn-link">Read More</a> </div>
-                    </div>-->
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="bg-white pinside40 service-block outline mb30">
-                            <div class="icon mb40"> <img src="images/Mortgage_Loan-01.svg" alt="Loan Mamu" class="icon-svg-2x"></div>
-                            <h2><a href="#" class="title">Business Loan</a></h2>
-                            <p>Lorem ipsum dolor sit nean commodo ligula eget dolor simple dummyum sociis natoque.amet, consectetuer adipiscing elit. </p>
-                            <a href="#" class="btn-link">Read More</a> </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="bg-white pinside40 service-block outline mb30">
-                            <div class="icon mb40"> <img src="images/car1-01.svg" alt="Loan Mamu" class="icon-svg-2x"></div>
-                            <h2><a href="#" class="title">Car Loan</a></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque.</p>
-                            <a href="#" class="btn-link">Read More</a> </div>
-                    </div>
+                    </div>                   
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -249,7 +224,7 @@
                 </div>
             </div>
             <div class="row">
-                <?php include_once "information.php"; ?>
+                <?php include_once "support.php"; ?>
             </div>
         </div>
     </div>

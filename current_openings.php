@@ -155,7 +155,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <?php include_once "information.php"; ?>
+                                <?php include_once "support.php"; ?>
                             </div>
                         </div>
                       
