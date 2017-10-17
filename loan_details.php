@@ -31,6 +31,7 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                 </div>
                             </div>
                         </div>
+                        <?php if($getAllServiceData->num_rows > 0) { ?>
                         <div class="compare-block mb30 prdct">
 							<div class="compare-row outline pinside30 padd0">
 								<?php $i=1; while($getAllProducts = $getAllServiceData->fetch_assoc()) { ?>
@@ -103,7 +104,11 @@ $getAllServiceData = $conn->query($sqlMultiple);
 								
                             </div>
 						</div>	
-
+						<?php } else { ?>
+							<div style="text-align:center">
+								No Details Found!
+							</div>
+						<?php } ?>
 
                     </div>
                 </div>
