@@ -48,7 +48,7 @@ if (!isset($_POST['submit']))  {
                 <form data-toggle="validator" method="POST" enctype="multipart/form-data">
                   <?php $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">
-                    <label for="form-control-3" class="control-label">Choose your Loan</label>
+                    <label for="form-control-3" class="control-label">Choose your Service</label>
                     <select id="form-control-3" name="service_id" class="custom-select" data-error="This field is required." required>
                       <option value="">Select Service</option>
                       <?php while($row = $getCategories->fetch_assoc()) {  ?>
