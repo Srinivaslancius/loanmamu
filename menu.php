@@ -9,7 +9,7 @@
                             <li><a href="services.php">Services</a>
                                 <ul>
                                 <?php while($row = $getServices->fetch_assoc()) {  ?>
-                                    <li><a href="loan_loan.php"><?php echo $row['name']; ?></a></li>
+                                    <li><a href="loan_details.php?lid=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a></li>
                                 <?php } ?>
                                 </ul>                                
                             </li>
