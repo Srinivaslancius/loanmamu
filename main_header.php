@@ -61,7 +61,7 @@ $getSiteSettingsData  = $getData->fetch_assoc();
                     <p class="mail-text">Welcome to our Loan Mamu</p>
                 </div>
                 <div class="col-md-8 col-sm-12 text-right col-xs-12">
-                    <div class="top-nav"><span class="top-text"><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a></span> <span class="top-text"><a href="#">EMI calculator</a></span> </div>
+                    <div class="top-nav"><span class="top-text"><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a></span> <span class="top-text"><a href="emi_calculator.php">EMI calculator</a></span> </div>
                 </div>
             </div>
         </div>
