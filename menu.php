@@ -16,7 +16,7 @@
                         <ul>
                             <li class="active"><a href="index.php" <?php if($page_name == 'index.php') {  ?> class="check_page" <?php } ?>>Home</a></li>
 							<li><a href="about_us.php" <?php if($page_name == 'about_us.php') {  ?> class="check_page" <?php } ?>>About us</a></li>       
-                            <li><a href="services.php" <?php if($page_name == 'services.php') {  ?> class="check_page" <?php } ?>>Services</a>
+                            <li><a href="#" <?php if($page_name == 'loan_details.php') {  ?> class="check_page" <?php } ?>>Services</a>
                                 <ul>
                                 <?php while($row = $getServices->fetch_assoc()) {  ?>
                                     <li><a href="loan_details.php?lid=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a></li>
