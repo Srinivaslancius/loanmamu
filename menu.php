@@ -1,10 +1,20 @@
 <?php include_once "main_header.php"; ?>
 <?php $getServices = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
 <div class="col-md-9 col-sm-12 col-xs-12">
+<?php 
+    $currentFile = $_SERVER["PHP_SELF"];
+    $parts = Explode('/', $currentFile);
+    $page_name = $parts[count($parts) - 1];
+?>
+<style type="text/css">
+.check_page {
+    color:#f51f8a !important;
+}
+</style>
                     <div id="navigation">
                         <!-- navigation start-->
                         <ul>
-                            <li class="active"><a href="index.php">Home</a></li>
+                            <li class="active"><a href="index.php" <?php if($page_name == 'index.php') {  ?> class="check_page" <?php } ?>>Home</a></li>
 							<li><a href="about_us.php">About us</a></li>       
                             <li><a href="services.php">Services</a>
                                 <ul>
