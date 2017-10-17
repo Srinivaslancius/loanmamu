@@ -21,12 +21,12 @@
                     <div class="widget-footer mt40">
                         <!-- widget footer -->
                         <ul class="listnone">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about_us.php">About Us</a></li>
 							<li><a href="#">Services</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Faq's</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="current_openings.php">Careers</a></li>
+                            <li><a href="faq.php">Faq's</a></li>
+                            <li><a href="contact_us.php">Contact Us</a></li>
                         </ul>
                     </div>
                     <!-- /.widget footer -->
