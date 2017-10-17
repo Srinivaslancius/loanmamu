@@ -12,6 +12,7 @@ if (!isset($_POST['submit']))  {
   $process_fee_range = $_POST['process_fee_range'];
   $loan_amount = $_POST['loan_amount'];
   $tenture_range = $_POST['tenture_range'];
+  $description = $_POST['description'];
   $bank_logo = $_FILES["bank_logo"]["name"];
    $status = $_POST['status'];
   $created_at = date("Y-m-d h:i:s"); 
@@ -23,7 +24,7 @@ if (!isset($_POST['submit']))  {
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     
     if (move_uploaded_file($_FILES["bank_logo"]["tmp_name"], $target_file)) {
-        $sql = "INSERT INTO service_details (`service_id`, `bank_name`, `bank_logo`,`interest_rate_range`, `process_fee_range`, `loan_amount`, `tenture_range`, `created_at`, `status`) VALUES ('$service_id', '$bank_name', '$bank_logo', '$interest_rate_range', '$process_fee_range', '$loan_amount', '$tenture_range', '$created_at', '$status')";
+        $sql = "INSERT INTO service_details (`service_id`, `bank_name`, `bank_logo`,`interest_rate_range`, `process_fee_range`, `loan_amount`, `tenture_range`, `description`,`created_at`, `status`) VALUES ('$service_id', '$bank_name', '$bank_logo', '$interest_rate_range', '$process_fee_range', '$loan_amount', '$tenture_range', '$description','$created_at', '$status')";
       
         if($conn->query($sql) === TRUE){
           echo "<script type='text/javascript'>window.location='service_details.php?msg=success'</script>";
@@ -80,6 +81,11 @@ if (!isset($_POST['submit']))  {
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Tenture Range</label>
                     <input type="text" class="form-control" id="form-control-2" name="tenture_range" placeholder="Tenture Range" data-error="please enter Tenture Range." required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Description</label>
+                    <textarea name="description" class="form-control" id="description" placeholder="Description" data-error="Please enter Description." required></textarea>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">

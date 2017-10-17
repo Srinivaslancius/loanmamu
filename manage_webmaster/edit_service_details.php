@@ -9,6 +9,7 @@ $id = $_GET['uid'];
             $interest_rate_range = $_POST['interest_rate_range'];
             $process_fee_range = $_POST['process_fee_range'];
             $loan_amount = $_POST['loan_amount'];
+            $description = $_POST['description'];
             $tenture_range = $_POST['tenture_range'];
             if($_FILES["bank_logo"]["name"]!='') {
               $bank_logo = $_FILES["bank_logo"]["name"];
@@ -18,7 +19,7 @@ $id = $_GET['uid'];
               $getImgUnlink = getImageUnlink('bank_logo','service_details','id',$id,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["bank_logo"]["tmp_name"], $target_file)) {
-                   $sql = "UPDATE `service_details` SET service_id = '$service_id',bank_name = '$bank_name',interest_rate_range = '$interest_rate_range',process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range',bank_logo = '$bank_logo',status='$status' WHERE id = '$id' ";
+                   $sql = "UPDATE `service_details` SET service_id = '$service_id',bank_name = '$bank_name',interest_rate_range = '$interest_rate_range',process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range',bank_logo = '$bank_logo',description= '$description',status='$status' WHERE id = '$id' ";
                     if($conn->query($sql) === TRUE){
                       echo "<script type='text/javascript'>window.location='service_details.php?msg=success'</script>";
                     } else {
@@ -29,7 +30,7 @@ $id = $_GET['uid'];
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
-                $sql = "UPDATE `service_details` SET service_id = '$service_id', bank_name = '$bank_name', interest_rate_range = '$interest_rate_range', process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range', status='$status' WHERE id = '$id' ";
+                $sql = "UPDATE `service_details` SET service_id = '$service_id', bank_name = '$bank_name', interest_rate_range = '$interest_rate_range', process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range', description= '$description',status='$status' WHERE id = '$id' ";
                 if($conn->query($sql) === TRUE){
                   echo "<script type='text/javascript'>window.location='service_details.php?msg=success'</script>";
                 } else {
@@ -86,7 +87,11 @@ $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeS
                     <input type="text" class="form-control" id="form-control-2" name="tenture_range" required value="<?php echo $getSubCategories['tenture_range'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
-
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Description</label>
+                    <textarea name="description" class="form-control" id="description" data-error="Please enter a valid email address." required><?php echo $getSubCategories['description'];?></textarea>
+                    <div class="help-block with-errors"></div>
+                  </div>
                   <div class="form-group">
                     <label for="form-control-4" class="control-label">Bank Logo</label>
                     <img src="<?php echo $base_url . 'uploads/service_details_images/'.$getSubCategories['bank_logo'] ?>"  id="output" height="100" width="100"/>

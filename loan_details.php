@@ -97,11 +97,7 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                 </div>
                                 <?php } ?>
 
-								<div class="row brdrbtm">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-									<center><small>Rs.5000 AMAZON VOCHER FREE</small></center>
-									</div>
-								</div>
+								
 								
 								<div class="row brdrbtm" id="details-block-1" style="display: none; padding: 20px;">
 									<div class="col-md-offset-2 col-md-8 col-sm-12">
