@@ -2,7 +2,7 @@
 error_reporting(0);
 session_start();
 date_default_timezone_set("Asia/Kolkata");
-
+ 
 $setcon = 2;
 if($setcon == 1) {
 	$servername = "localhost";
@@ -24,5 +24,6 @@ if ($conn->connect_error) {
 }  
  
 $base_url = "http://localhost/loanmamu/";
+
 
 ?>
