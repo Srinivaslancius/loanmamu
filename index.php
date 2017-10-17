@@ -107,55 +107,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 text-center"> <a href="#" class="btn btn-default">View Our Loans</a> </div>
-            </div>
+            
         </div>
     </div>
-    <div class="section-space80">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-offset-2 col-md-8">
-                    <div class="mb60 text-center section-title">
-                        <!-- section title start-->
-                        <h1>Why People Choose Us</h1>
-                        <p>Suspendisse aliquet varius nunc atcibus lacus sit amet coed portaeri sque mami luctus viveed congue lobortis faucibus.</p>
-                    </div>
-                    <!-- /.section title start-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="bg-white bg-boxshadow">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6 nopadding col-xs-12">
-                                <div class="bg-white pinside60 number-block outline">
-                                    <div class="mb20"><i class="icon-command  icon-4x icon-primary"></i></div>
-                                    <h3>Dedicated Specialists</h3>
-                                    <p>Duis eget diam quis elit erdiet alidvolutp terdum tfanissim non intwesollis eu mauris.</p>
-                                    <a href="#" class="btn btn-outline mt20">Meet the team</a> </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 nopadding col-xs-12">
-                                <div class="bg-white pinside60 number-block outline">
-                                    <div class="mb20"><i class="icon-cup  icon-4x icon-primary"></i></div>
-                                    <h3>Success Stories Rating</h3>
-                                    <p>Integer facilisis fringilla dolor ut luctus lvinar felis miat velitliquam at fermentum orci.</p>
-                                    <a href="#" class="btn btn-outline mt20">View Client Review</a> </div>
-                            </div>
-                            <div class="col-md-4 col-sm-12 nopadding col-xs-12">
-                                <div class="bg-white pinside60 number-block outline">
-                                    <div class="mb20"><i class="icon-calculator  icon-4x icon-primary"></i></div>
-                                    <h3>No front Appraisal Fees!</h3>
-                                    <p> Integer faisis fringilla dolor ut luctus nisi eneinar felis viverra dignissim fermentum orci.</p>
-                                    <a href="#" class="btn btn-outline mt20">Why choose us</a> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-	
+ 
 	
 	 <div class="bg-default section-space80">
         <div class="container">
