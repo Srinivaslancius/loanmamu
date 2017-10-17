@@ -89,7 +89,7 @@ $getAllServiceData = $conn->query($sqlMultiple);
 											<center>
 												<div class="btn-group">
 													<a href="javascript:void(0);" id="btn_loan" onClick="showDetails(<?php echo $i; ?>);" class="btn btn-default btn-sm btn_loan">Details</a>
-													<a href="#" class="btn btn-default btn-sm">Submit</a>
+													<a href="apply_now.php" class="btn btn-default btn-sm">Apply</a>
 												</div>
 											</center>
 											</div>

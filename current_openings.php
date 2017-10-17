@@ -2,7 +2,7 @@
 <?php
 if (!isset($_POST['submit']))  {
   //If fail
-  echo "fail";
+  //echo "fail";
 } else  {
   //If success
   $name = $_POST['name'];
@@ -39,7 +39,7 @@ if (!isset($_POST['submit']))  {
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="index-2.html">Home</a></li>
-                            <li class="active">Contact us</li>
+                            <li class="active">Careers</li>
                         </ol>
                     </div>
                 </div>
