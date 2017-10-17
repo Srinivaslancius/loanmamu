@@ -1,5 +1,6 @@
   <?php $getAboutUsData = getDataFromTables('content_pages',$status=NULL,'id',1,$activeStatus=NULL,$activeTop=NULL);
       $getAboutUs = $getAboutUsData->fetch_assoc();?>
+<?php $getServices = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
   <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12">
@@ -35,15 +36,9 @@
                     <div class="widget-footer mt40">
                         <!-- widget footer -->
                         <ul class="listnone">
-                            <li><a href="#">Car Loan</a></li>
-                            <li><a href="#">Personal Loan</a></li>
-                            <li><a href="#">Mortgage Loan</a></li>
-                            <li><a href="#">Business Loan</a></li>
-                            <li><a href="#">Home Loan</a></li>
-                            <li><a href="#">Life Insurence</a></li>
-							<li><a href="#">Health Insurence</a></li>
-							<li><a href="#">Car Insurence</a></li>
-							<li><a href="#">Mutual Funds</a></li>
+                            <?php while($row = $getServices->fetch_assoc()) {  ?>
+                                    <li><a href="loan_details.php?lid=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a></li>
+                                <?php } ?>
                         </ul>
                     </div>
                     <!-- /.widget footer -->

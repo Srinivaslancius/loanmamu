@@ -61,7 +61,7 @@
                             <div class="icon mb40"> <img src="<?php echo $base_url . 'uploads/service_images/'.$row['image'] ?>" alt="Loan Mamu" class="icon-svg-2x"> </div>
                             <h2><a href="#" class="title"><?php echo $row['name']; ?></a></h2>
                             <p><?php echo $row['description']; ?></p>
-                            <a href="#" class="btn-link">Read More</a> </div>
+                            <a href="loan_details.php?lid=<?php echo $row['id']; ?>" class="btn-link">Read More</a> </div>
                     </div>
                     
                 
