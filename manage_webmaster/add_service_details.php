@@ -7,6 +7,7 @@ if (!isset($_POST['submit']))  {
   //If success
   $service_id = $_POST['service_id'];
   $bank_name = $_POST['bank_name'];
+  $check_list_name = $_POST['check_list_name'];
   $interest_rate_range = $_POST['interest_rate_range'];
   $process_fee_range = $_POST['process_fee_range'];
   $loan_amount = $_POST['loan_amount'];

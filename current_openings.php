@@ -104,7 +104,7 @@ if (!isset($_POST['submit']))  {
 												<div class="col-md-4 col-sm-12 col-xs-12">
 													<div class="form-group">
 														Email:<label class="sr-only control-label" for="email">Email<span class=" "> </span></label>
-														<input type="email" id="email" name="email"  placeholder="Email" class="form-control input-md" required>
+														<input type="email" pattern="[^ @]*@[^ @]*" id="email" name="email"  placeholder="Email" class="form-control input-md" required>
 													</div>
 												</div>
 												<div class="col-md-5 col-sm-12 col-xs-12">
@@ -130,7 +130,7 @@ if (!isset($_POST['submit']))  {
 												<div class="col-md-4 col-sm-12 col-xs-12">
 													<div class="form-group">
 														Phone:<label class="sr-only control-label" for="phone">Phone<span class=" "> </span></label>
-														<input id="mobile" name="mobile" type="text" placeholder="Phone" class="form-control input-md" required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)">
+														<input id="mobile" name="mobile" type="text" placeholder="Phone" class="form-control input-md" required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
 													</div>
 												</div>
 												<div class="col-md-5 col-sm-12 col-xs-12">
@@ -142,7 +142,7 @@ if (!isset($_POST['submit']))  {
 												<div class="col-md-4 col-sm-12 col-xs-12">
 													<div class="form-group">
 														<label for="fileToUpload">Upload Resume</label>
-														<input type="file" id="fileToUpload" name = "fileToUpload" accept=".doc, .docx">
+														<input type="file" id="fileToUpload" name = "fileToUpload" accept=".doc, .docx" required>
 													</div>
 												</div>
 												<div class="col-md-5 col-sm-12 col-xs-12">
