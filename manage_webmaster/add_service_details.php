@@ -48,8 +48,8 @@ if (!isset($_POST['submit']))  {
                   <?php $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose your Loan</label>
-                    <select id="form-control-3" name="check_list_name" class="custom-select" data-error="This field is required." required>
-                      <option value="">Select Category</option>
+                    <select id="form-control-3" name="service_id" class="custom-select" data-error="This field is required." required>
+                      <option value="">Select Service</option>
                       <?php while($row = $getCategories->fetch_assoc()) {  ?>
                         <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                       <?php } ?>

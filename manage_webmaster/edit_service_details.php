@@ -52,7 +52,7 @@ $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeS
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="POST" enctype="multipart/form-data">
                   <div class="form-group">
-                    <label for="form-control-3" class="control-label">Choose your Category</label>
+                    <label for="form-control-3" class="control-label">Choose your Service</label>
                     <select id="form-control-3" name="service_id" class="custom-select" data-error="This field is required." required>
                       <option value="">Select Category</option>
                       <?php while($row = $getCategories->fetch_assoc()) {  ?>

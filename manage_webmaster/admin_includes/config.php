@@ -10,7 +10,7 @@ if($setcon == 1) {
 	$password = "";
 	$dbname = "";
 } else {
-	$servername = "192.168.0.114";	
+	$servername = "192.168.0.100";	
 	$username = "root";
 	$password = "root";
 	$dbname = "loanmamu";
@@ -23,6 +23,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }  
 
-$base_url = "http://192.168.0.114/loanmamu/";
+$base_url = "http://192.168.0.100/loanmamu/";
 
 ?>
