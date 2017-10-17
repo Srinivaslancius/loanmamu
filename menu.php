@@ -15,8 +15,8 @@
                         <!-- navigation start-->
                         <ul>
                             <li class="active"><a href="index.php" <?php if($page_name == 'index.php') {  ?> class="check_page" <?php } ?>>Home</a></li>
-							<li><a href="about_us.php">About us</a></li>       
-                            <li><a href="services.php">Services</a>
+							<li><a href="about_us.php" <?php if($page_name == 'about_us.php') {  ?> class="check_page" <?php } ?>>About us</a></li>       
+                            <li><a href="services.php" <?php if($page_name == 'services.php') {  ?> class="check_page" <?php } ?>>Services</a>
                                 <ul>
                                 <?php while($row = $getServices->fetch_assoc()) {  ?>
                                     <li><a href="loan_details.php?lid=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a></li>
@@ -24,14 +24,14 @@
                                 </ul>                                
                             </li>
                                                 
-                            <li><a href="#">Careers</a>
+                            <li><a href="#" <?php if($page_name == 'current_openings.php') {  ?> class="check_page" <?php } ?>>Careers</a>
                                 <ul>
-								<li><a href="current_openings.php">Current Opening</a></li>
+								<li><a href="current_openings.php" <?php if($page_name == 'current_openings.php') {  ?> class="check_page" <?php } ?>>Current Opening</a></li>
 								
                                 </ul>
                             </li>
-							  <li><a href="faq.php">FAQ'S</a></li>
-                            <li><a href="contact_us.php">Contact us</a></li>
+							  <li><a href="faq.php" <?php if($page_name == 'faq.php') {  ?> class="check_page" <?php } ?>>FAQ'S</a></li>
+                            <li><a href="contact_us.php" <?php if($page_name == 'contact_us.php') {  ?> class="check_page" <?php } ?>>Contact us</a></li>
                         </ul>
                     </div>
                     <!-- /.navigation start-->
