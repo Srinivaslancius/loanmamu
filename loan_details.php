@@ -38,7 +38,7 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                     <div class="col-md-2 col-sm-12 col-xs-12 paddrl0">
 										<div class="rate-counter-block-one">
 											<div class="rate-box">
-												<center><img src="<?php echo $base_url . 'uploads/service_details_images/'.$getAllProducts['bank_logo'] ?>" alt="Loan Mamu"><?php echo $getAllProducts['bank_name']; ?></center>
+												<center><img src="<?php echo $base_url . 'uploads/service_details_images/'.$getAllProducts['bank_logo'] ?>" alt="Loan Mamu" height="50" width="50"><?php echo $getAllProducts['bank_name']; ?></center>
 											</div>
 										</div>
 									</div>
