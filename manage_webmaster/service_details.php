@@ -13,6 +13,7 @@
                   <tr>
                     <th>Id</th>
                     <th>Bank Name</th>
+                    <th>Service Name</th>
                     <th>Bank Logo</th>
                     <th>Interest Rate Range</th>
                     <th>Process Fee Range</th>
@@ -27,6 +28,8 @@
                   <tr>
                     <td><?php echo $i;?></td>
                     <td><?php echo $row['bank_name'];?></td>
+                    <td><?php $getServices = getDataFromTables('services',$status=NULL,'id',$row['service_id'],$activeStatus=NULL,$activeTop=NULL);
+                      $getService = $getServices->fetch_assoc(); echo $getService['name']; ?></td>
                     <td><img src="<?php echo $base_url . 'uploads/service_details_images/'.$row['bank_logo'] ?>" height="100" width="100"/></td>
                     <td><?php echo $row['interest_rate_range'];?></td>
                     <td><?php echo $row['process_fee_range'];?></td>
