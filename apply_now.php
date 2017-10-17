@@ -25,7 +25,7 @@
                             <div class="row">
                                 <div class="col-md-offset-2 col-md-8 col-sm-12">
                                     <div class="text-center section-space50">
-                                        <h1>coming Soon</h1>
+                                        <h1>Coming Soon</h1>
                                         <p style="text-align:justify"></p>
                                     </div>
                                 </div>
