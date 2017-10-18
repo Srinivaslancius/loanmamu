@@ -3,6 +3,7 @@
 <?php $getTestmonialsData = getAllDataWithActiveRecent('testimonials');  ?>
 <?php $getServicesData = getAllDataWithActiveRecent('services');  ?>
 <?php $getServicesData1 = getAllDataWithActiveRecent('services');  ?>
+
     <div class="slider" id="slider">
         <!-- slider -->
         <?php while ($row = $getBannersData->fetch_assoc()) { ?>
@@ -84,26 +85,32 @@
                     <!-- /.section title start-->
                 </div>
             </div>
+            <?php $getChooseData = getDataFromTables('content_pages',$status=NULL,'id',3,$activeStatus=NULL,$activeTop=NULL);
+            $getChoose = $getChooseData->fetch_assoc();?>
             <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="bg-white pinside40 number-block outline mb60 bg-boxshadow">
                         <div class="circle"><span class="number">1</span></div>
-                        <h3 class="number-title">Choose Loan Amount</h3>
-                        <p>Suspendisse accumsan imperdue ligula dignissim sit amet vestibulum in mollis etfelis.</p>
+                        <h3 class="number-title"><?php echo $getChoose['title'] ?></h3>
+                        <p><?php echo $getChoose['description'] ?></p>
                     </div>
                 </div>
+                <?php $getApprovedData = getDataFromTables('content_pages',$status=NULL,'id',4,$activeStatus=NULL,$activeTop=NULL);
+                $getApprove = $getApprovedData->fetch_assoc();?>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="bg-white pinside40 number-block outline mb60 bg-boxshadow">
                         <div class="circle"><span class="number">2</span></div>
-                        <h3 class="number-title">Approved Your Loan</h3>
-                        <p>Fusce tempor sstibulum varius sem nec mi luctus viverra edcongue lobortis faucibus.</p>
+                        <h3 class="number-title"><?php echo $getApprove['title'] ?></h3>
+                        <p><?php echo $getApprove['description'] ?>.</p>
                     </div>
                 </div>
+                <?php $getYourCash = getDataFromTables('content_pages',$status=NULL,'id',5,$activeStatus=NULL,$activeTop=NULL);
+                $getCash = $getYourCash->fetch_assoc();?>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="bg-white pinside40 number-block outline mb60 bg-boxshadow">
                         <div class="circle"><span class="number">3</span></div>
-                        <h3 class="number-title">Get Your Cash</h3>
-                        <p>Get your money in minutes simtibulm varius semnec mluctus gue lobortis faucibus.</p>
+                        <h3 class="number-title"><?php echo $getCash['title'] ?></h3>
+                        <p><?php echo $getCash['description'] ?>.</p>
                     </div>
                 </div>
             </div>
