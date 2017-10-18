@@ -36,7 +36,6 @@ $msgClass = '';
                 
                 // Send email
                 if(mail($toEmail,$emailSubject,$htmlContent)){
-                echo "srinu"; die;
                     $statusMsg = 'Your contact request has been submitted successfully !';
                     $msgClass = 'succdiv';
                 }else{
@@ -100,7 +99,7 @@ $msgClass = '';
                                             <div class="col-md-4 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     <label class="sr-only control-label" for="phone">Phone<span class=" "> </span></label>
-                                                    <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control input-md" required>
+                                                    <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control input-md" required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)">
                                                 </div>
                                             </div>
                                             <!-- Select Basic -->
@@ -227,3 +226,11 @@ $msgClass = '';
     
 </body>
 </html>
+<script type="text/javascript">
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+  }
+</script>
