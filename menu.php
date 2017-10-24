@@ -24,9 +24,10 @@
                                 </ul>                                
                             </li>
                                                 
-                            <li><a href="#" <?php if($page_name == 'current_openings.php') {  ?> class="check_page" <?php } ?>>Careers</a>
+                            <li><a href="current_openings.php" <?php if($page_name == 'post_resume.php' || $page_name == 'current_openings.php') {  ?> class="check_page" <?php } ?>>Careers</a>
                                 <ul>
 								<li><a href="current_openings.php" <?php if($page_name == 'current_openings.php') {  ?> class="check_page" <?php } ?>>Current Opening</a></li>
+                                <li><a href="post_resume.php" <?php if($page_name == 'post_resume.php') {  ?> class="check_page" <?php } ?>>Post Resume</a></li>
 								
                                 </ul>
                             </li>
