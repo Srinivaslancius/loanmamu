@@ -2,7 +2,11 @@
 <?php
 //ob_start();
 if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['mobile']) && !empty($_POST['message']))  {
-
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $message = $_POST['message'];
+    
 $dataem = $getSiteSettingsData['email'];
 //$to = "srinivas@lanciussolutions.com";
 $to = "$dataem";
