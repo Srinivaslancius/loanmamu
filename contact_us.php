@@ -18,7 +18,7 @@ $message = "<html><head><title>Loanmamu </title></head>
 </body>
 </html>
 ";
-echo $message;
+
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -195,11 +195,4 @@ if(mail($to,$subject,$message,$headers)) {
     
 </body>
 </html>
-<script type="text/javascript">
-function isNumberKey(evt){
-    var charCode = (evt.which) ? evt.which : event.keyCode
-      if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
-    return true;
-  }
-</script>
+
