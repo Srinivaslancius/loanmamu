@@ -11,14 +11,14 @@ $msgClass = '';
         $message = $_POST['message'];
         
         // Check whether submitted data is not empty
-        if(!empty($email) && !empty($name) && !empty($phone) && !empty($inquiry)){
-            
+        if(!empty($email) && !empty($name) && !empty($phone) && !empty($message)){
+            $dataem = $getSiteSettingsData['email'];
             if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
                 $statusMsg = 'Please enter your valid email.';
                 $msgClass = 'errordiv';
             }else{
                 // Recipient email
-                $toEmail = 'srinivas@lanciussolutions.com';
+                $toEmail = "$dataem";
                 $emailSubject = 'Contact Request Submitted by '.$name;
                 $htmlContent = '<h2>Contact Request Submitted</h2>
                     <h4>Name</h4><p>'.$name.'</p>
@@ -106,7 +106,7 @@ $msgClass = '';
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="form-group">
                                                     <label class="control-label" for="message"> </label>
-                                                    <textarea class="form-control" id="message" rows="7" name="message" placeholder="Message"></textarea>
+                                                    <textarea class="form-control" id="message" rows="7" name="message" placeholder="Message" required></textarea>
                                                 </div>
                                             </div>
                                             <!-- Button -->
