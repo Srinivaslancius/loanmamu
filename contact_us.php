@@ -13,12 +13,12 @@ $message = "<html><head><title>Loanmamu </title></head>
 <p>Contact Request Submitted!</p>
 <h4>Name: </h4><p>".$_POST['name']."</p>
 <h4>Email: </h4><p>".$_POST['email']."</p>
-<h4>Email: </h4><p>".$_POST['mobile']."</p>
+<h4>Mobile: </h4><p>".$_POST['mobile']."</p>
 <h4>Message: </h4><p>".$_POST['message']."</p>
 </body>
 </html>
 ";
-
+echo $message;
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
