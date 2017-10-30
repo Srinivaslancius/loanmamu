@@ -69,22 +69,22 @@ $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeS
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Interest rate Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="interest_rate_range" required value="<?php echo $getSubCategories['interest_rate_range'];?>">
+                    <input type="text" class="form-control" id="form-control-2" name="interest_rate_range" onkeypress="return isNumberKey(event)" required value="<?php echo $getSubCategories['interest_rate_range'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Process Fee Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="process_fee_range" required value="<?php echo $getSubCategories['process_fee_range'];?>">
+                    <input type="text" class="form-control" id="form-control-2" name="process_fee_range" onkeypress="return isNumberKey(event)" required value="<?php echo $getSubCategories['process_fee_range'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Loan Amount</label>
-                    <input type="text" class="form-control" id="form-control-2" name="loan_amount" required value="<?php echo $getSubCategories['loan_amount'];?>">
+                    <input type="text" class="form-control" id="form-control-2" name="loan_amount" onkeypress="return isNumberKey(event)" required value="<?php echo $getSubCategories['loan_amount'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Tenture Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="tenture_range" required value="<?php echo $getSubCategories['tenture_range'];?>">
+                    <input type="text" class="form-control" id="form-control-2" name="tenture_range" onkeypress="return isNumberKey(event)" required value="<?php echo $getSubCategories['tenture_range'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">

@@ -65,22 +65,22 @@ if (!isset($_POST['submit']))  {
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Interest rate Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="interest_rate_range" placeholder="Interest rate Range" data-error="please enter Interest rate Range." required>
+                    <input type="text" class="form-control" id="form-control-2" name="interest_rate_range" placeholder="Interest rate Range" data-error="please enter Interest rate Range." required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Process Fee Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="process_fee_range" placeholder="Process Fee Range" data-error="please enter Process Fee Range." required>
+                    <input type="text" class="form-control" id="form-control-2" name="process_fee_range" placeholder="Process Fee Range" data-error="please enter Process Fee Range." required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Loan Amount</label>
-                    <input type="text" class="form-control" id="form-control-2" name="loan_amount" placeholder="Loan Amount" data-error="please enter Loan Amount." required>
+                    <input type="text" class="form-control" id="form-control-2" name="loan_amount" placeholder="Loan Amount" data-error="please enter Loan Amount." required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Tenture Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="tenture_range" placeholder="Tenture Range" data-error="please enter Tenture Range." required>
+                    <input type="text" class="form-control" id="form-control-2" name="tenture_range" placeholder="Tenture Range" data-error="please enter Tenture Range." required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
