@@ -1,5 +1,5 @@
 <?php include_once "main_header.php"; ?>
- <?php $getAllActiveFaqs = getAllDataWithActiveRecent('faqs',0); ?>
+ <?php $getAllActiveFaqs = getAllDataCheckActive('faqs',0); ?>
     <div class="page-header">
         <div class="container">
             <div class="row">

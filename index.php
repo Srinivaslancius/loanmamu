@@ -1,6 +1,6 @@
 <?php include_once "main_header.php"; ?>
-<?php $getBannersData = getAllDataWithActiveRecent('banners');  ?>
-<?php $getTestmonialsData = getAllDataWithActiveRecent('testimonials');  ?>
+<?php $getBannersData = getAllDataCheckActive('banners',0);  ?>
+<?php $getTestmonialsData = getAllDataCheckActive('testimonials',0);  ?>
 <?php $getServicesData = getAllDataWithActiveRecent('services');  ?>
 <?php $getServicesData1 = getAllDataWithActiveRecent('services');  ?>
 

@@ -24,7 +24,7 @@
                         <ul class="listnone">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="about_us.php">About Us</a></li>
-							<li><a href="#">Services</a></li>
+							<li><a href="loan_details.php">Services</a></li>
                             <li><a href="current_openings.php">Careers</a></li>
                             <li><a href="faq.php">Faq's</a></li>
                             <li><a href="contact_us.php">Contact Us</a></li>

@@ -21,7 +21,7 @@ if (!isset($_POST['submit']))  {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
          $sql = "INSERT INTO posted_resumes (`name`,`experience`,`email`,`resume_title`,`mobile`,`resumes`,`created_at`) VALUES ('$name','$experience','$email', '$resume_title','$mobile', '$fileToUpload', '$created_at')";
         if($conn->query($sql) === TRUE){
-          echo "<script type='text/javascript'>window.location='current_openings.php?msg=success'</script>";
+          echo  "<script>alert('Message Sent successfully');window.location.href('post_resume.php');</script>";
         }else {
           echo "<script type='text/javascript'>window.location='current_openings.php?msg=fail'</script>";
         }
