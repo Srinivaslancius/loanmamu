@@ -16,14 +16,41 @@ if (!isset($_POST['submit']))  {
   $message = $_POST['message'];
   $created_at = date("Y-m-d h:i:s");
     $sql = "INSERT INTO apply_now (`name`,`mobile`,`alt_mobile`,`email`,`address`,`city`,`occupation`,`company_name`,`designation`,`monthly_income`,`message`,`created_at`) VALUES ('$name','$mobile','$alt_mobile', '$email','$address', '$city','$occupation','$company_name','$designation','$monthly_income','$message','$created_at')";
-        if($conn->query($sql) === TRUE){ 
-          echo  "<script>alert('Message Sent successfully');window.location.href('apply_now.php');</script>";
-        }else {
-          echo "<script type='text/javascript'>window.location='apply_now.php?msg=fail'</script>";
-    }
+        $row =$conn->query($sql);
+         $dataem = $getSiteSettingsData['email'];
+        //$to = "srinivas@lanciussolutions.com";
+        $to = "$dataem";
+        $subject = "Loan Application Form";
 
-    
-  
+        $message = "<html><head><title>Loanmamu </title></head>
+        <body>
+        <p>Application Form</p>
+        <h4>Name: </h4><p>".$_POST['name']."</p>
+        <h4>Mobile: </h4><p>".$_POST['mobile']."</p>
+        <h4>Alternative Mobile: </h4><p>".$_POST['alt_mobile']."</p>
+        <h4>Email: </h4><p>".$_POST['email']."</p>
+        <h4>Address: </h4><p>".$_POST['address']."</p>
+        <h4>City: </h4><p>".$_POST['city']."</p>
+        <h4>Occupation: </h4><p>".$_POST['occupation']."</p>
+        <h4>Company Name: </h4><p>".$_POST['company_name']."</p>
+        <h4>Designation: </h4><p>".$_POST['designation']."</p>
+        <h4>Monthly Income: </h4><p>".$_POST['monthly_income']."</p>
+        <h4>Message: </h4><p>".$_POST['message']."</p>
+        </body>
+        </html>
+        ";
+
+        // Always set content-type when sending HTML email
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+        // More headers
+        $headers .= 'From: '.$name.'<'.$email.'>'. "\r\n";
+        // $headers .= 'Cc: myboss@example.com' . "\r\n";
+
+        if(mail($to,$subject,$message,$headers)) {
+            echo  "<script>alert('Message Sent Successfully');window.location.href('apply_now.php');</script>";
+        }
 }
 ?>
     <div class="page-header">
