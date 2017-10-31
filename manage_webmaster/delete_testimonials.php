@@ -8,8 +8,8 @@ $getImgUnlink = getImageUnlink('image','testimonials','id',$id,$target_dir);
 $qry = "DELETE FROM testimonials WHERE id ='$id'";
 $result = $conn->query($qry);
 if(isset($result)) {
-   echo "<script>alert('Testimonials Deleted Successfully');window.location.href='testimonials.php';</script>";
+   echo "<script>alert('Testimonial Deleted Successfully');window.location.href='testimonials.php';</script>";
 } else {
-   echo "<script>alert('Testimonials Not Deleted');window.location.href='testimonials.php';</script>";
+   echo "<script>alert('Testimonial Not Deleted');window.location.href='testimonials.php';</script>";
 }
 ?>

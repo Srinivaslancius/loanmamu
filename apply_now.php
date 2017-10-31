@@ -88,13 +88,13 @@ if (!isset($_POST['submit']))  {
                                             <!-- Text input-->
                                               <div class="col-md-3 col-sm-12 col-xs-12">
                                               </div>
-                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="col-md-5 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     Name:<label class="sr-only control-label" for="name">Name<span class=" "> </span></label>
                                                     <input id="name" name="name" type="text" placeholder="Full Name" class="form-control input-md" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                            <div class="col-md-4 col-sm-12 col-xs-12">
                                             </div>
                                             </div>
                                             <!-- Text input-->
@@ -108,138 +108,162 @@ if (!isset($_POST['submit']))  {
                                             <div class="row">
                                                 <div class="col-md-3 col-sm-12 col-xs-12">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                                <div class="col-md-5 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         Mobile:<label class="sr-only control-label" for="phone">Mobile<span class=" "> </span></label>
                                                         <input id="mobile" name="mobile" type="text" placeholder="Mobile" class="form-control input-md" required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                                <div class="col-md-4 col-sm-12 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3 col-sm-12 col-xs-12">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                                <div class="col-md-5 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         Alternative Mobile:<label class="sr-only control-label" for="phone">Alternative Mobile<span class=" "> </span></label>
                                                         <input id="alt_mobile" name="alt_mobile" type="text" placeholder="Alternative Mobile" class="form-control input-md" required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                                <div class="col-md-4 col-sm-12 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3 col-sm-12 col-xs-12">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                                <div class="col-md-5 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         Email:<label class="sr-only control-label" for="email">Email<span class=" "> </span></label>
                                                         <input type="email" pattern="[^ @]*@[^ @]*" id="email" name="email"  placeholder="Email" class="form-control input-md" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                                <div class="col-md-4 col-sm-12 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="row">
                                             <!-- Text input-->
                                               <div class="col-md-3 col-sm-12 col-xs-12">
                                               </div>
-                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="col-md-5 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     Address:<label class="sr-only control-label" for="name">Address<span class=" "> </span></label>
                                                     <input id="name" name="address" type="text" placeholder="Address" class="form-control input-md" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                            <div class="col-md-4 col-sm-12 col-xs-12">
                                             </div>
                                             </div>
                                             <div class="row">
                                             <!-- Text input-->
                                               <div class="col-md-3 col-sm-12 col-xs-12">
                                               </div>
-                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="col-md-5 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     City:<label class="sr-only control-label" for="name">City<span class=" "> </span></label>
                                                     <input id="city" name="city" type="text" placeholder="City" class="form-control input-md" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                            <div class="col-md-4 col-sm-12 col-xs-12">
                                             </div>
                                             </div>
                                             <div class="row">
                                             <!-- Text input-->
                                               <div class="col-md-3 col-sm-12 col-xs-12">
                                               </div>
-                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="col-md-5 col-sm-12 col-xs-12">
                                                 <div class="form-group">
-                                                    Occupation:<label class="sr-only control-label" for="name"><span class=" "> </span></label>
-                                                    <input id="occupation" name="occupation" type="radio" value="Salaried" class="form-control input-md" >Salaried
-                                                    <input id="occupation" name="occupation" type="radio" value="Self employed" class="form-control input-md" >Self employed
-                                                    <input id="occupation" name="occupation" type="radio" value="Others" class="form-control input-md">Others
+                                                    Occupation:<label class="sr-only control-label" for="name"><span class=" ">Occupation:</span></label>
+                                                    <div class="row">
+                                                    <div class="col-sm-4">
+                                                    <div class="radio">
+                                                      <label>
+                                                        <input type="radio" value="Salaried" name="occupation">
+                                                        Salaried
+                                                      </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                    <div class="radio">
+                                                      <label>
+                                                        <input type="radio" value="Self employed" name="occupation">
+                                                        Self employed
+                                                      </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                    <div class="radio">
+                                                      <label>
+                                                        <input type="radio" value="Others" name="occupation">
+                                                        Others
+                                                      </label>
+                                                    </div>
+                                                    </div>
+                                                    
+                                                    </div>                                                  
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                            <div class="col-md-4 col-sm-12 col-xs-12">
                                             </div>
                                             </div>
                                             <div class="row">
                                             <!-- Text input-->
                                               <div class="col-md-3 col-sm-12 col-xs-12">
                                               </div>
-                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="col-md-5 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     Company Name:<label class="sr-only control-label" for="name">Company Name<span class=" "> </span></label>
                                                     <input id="company_name" name="company_name" type="text" placeholder="Company Name" class="form-control input-md" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                            <div class="col-md-4 col-sm-12 col-xs-12">
                                             </div>
                                             </div>
                                             <div class="row">
                                             <!-- Text input-->
                                               <div class="col-md-3 col-sm-12 col-xs-12">
                                               </div>
-                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="col-md-5 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     Designation:<label class="sr-only control-label" for="name">Designation<span class=" "> </span></label>
                                                     <input id="designation" name="designation" type="text" placeholder="Designation" class="form-control input-md" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                            <div class="col-md-4 col-sm-12 col-xs-12">
                                             </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3 col-sm-12 col-xs-12">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                                <div class="col-md-5 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         Monthly Income:<label class="sr-only control-label" for="phone">Monthly Income<span class=" "> </span></label>
                                                         <input id="monthly_income" name="monthly_income" type="text" placeholder="Monthly Income" class="form-control input-md"   >
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                                <div class="col-md-4 col-sm-12 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="row">
                                             <!-- Text input-->
                                               <div class="col-md-3 col-sm-12 col-xs-12">
                                               </div>
-                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="col-md-5 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     Message:<label class="sr-only control-label" for="name">Message<span class=" "> </span></label>
                                                     <textarea class="form-control" id="message" rows="4" name="message" placeholder="Message" required></textarea>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                            <div class="col-md-4 col-sm-12 col-xs-12">
                                             </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3 col-sm-12 col-xs-12">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                                <div class="col-md-5 col-sm-12 col-xs-12">
                                                     <button type="submit" name="submit" class="btn btn-default">Submit</button>
                                                 </div>
-                                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                                <div class="col-md-4 col-sm-12 col-xs-12">
                                                 </div>
                                             </div>  
                                         </div>

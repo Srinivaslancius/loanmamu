@@ -1,8 +1,9 @@
+
 <?php include_once "main_header.php"; ?>
 <?php $getBannersData = getAllDataCheckActive('banners',0);  ?>
 <?php $getTestmonialsData = getAllDataCheckActive('testimonials',0);  ?>
-<?php $getServicesData = getAllDataWithActiveRecent('services');  ?>
-<?php $getServicesData1 = getAllDataWithActiveRecent('services');  ?>
+<?php $getServicesData = getAllDataCheckActive('services',0);  ?>
+<?php $getServicesData1 = getAllDataCheckActive('services',0);  ?>
 
     <div class="slider" id="slider">
         <!-- slider -->
@@ -85,9 +86,11 @@
                     <!-- /.section title start-->
                 </div>
             </div>
-            <?php $getChooseData = getDataFromTables('content_pages',$status=NULL,'id',3,$activeStatus=NULL,$activeTop=NULL);
-            $getChoose = $getChooseData->fetch_assoc();?>
+            <?php $getChooseData = getAllDataCheckActive1('content_pages','0',3); ?>
+            
+
             <div class="row">
+                <?php if($getChoose = $getChooseData->fetch_assoc()) { ?>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="bg-white pinside40 number-block outline mb60 bg-boxshadow">
                         <div class="circle"><span class="number">1</span></div>
@@ -95,8 +98,9 @@
                         <p><?php echo $getChoose['description'] ?></p>
                     </div>
                 </div>
-                <?php $getApprovedData = getDataFromTables('content_pages',$status=NULL,'id',4,$activeStatus=NULL,$activeTop=NULL);
-                $getApprove = $getApprovedData->fetch_assoc();?>
+                <?php } ?>
+                <?php $getApprovedData = getAllDataCheckActive1('content_pages','0',4); 
+                if($getApprove = $getApprovedData->fetch_assoc()) { ?>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="bg-white pinside40 number-block outline mb60 bg-boxshadow">
                         <div class="circle"><span class="number">2</span></div>
@@ -104,8 +108,9 @@
                         <p><?php echo $getApprove['description'] ?>.</p>
                     </div>
                 </div>
-                <?php $getYourCash = getDataFromTables('content_pages',$status=NULL,'id',5,$activeStatus=NULL,$activeTop=NULL);
-                $getCash = $getYourCash->fetch_assoc();?>
+                <?php } ?>
+                <?php $getYourCash = getAllDataCheckActive1('content_pages','0',5);
+                if($getCash = $getYourCash->fetch_assoc()) { ?>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="bg-white pinside40 number-block outline mb60 bg-boxshadow">
                         <div class="circle"><span class="number">3</span></div>
@@ -113,6 +118,7 @@
                         <p><?php echo $getCash['description'] ?>.</p>
                     </div>
                 </div>
+                <?php } ?>
             </div>
             
         </div>

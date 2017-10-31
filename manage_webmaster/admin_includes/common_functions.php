@@ -55,6 +55,13 @@
         $result = $conn->query($sql);         
         return $result;
     }
+    function getAllDataCheckActive1($table,$status,$id)
+    {
+        global $conn;
+        $sql="select * from `$table` WHERE `status` = '$status' AND id = '$id' ORDER BY id DESC  ";
+        $result = $conn->query($sql);         
+        return $result;
+    }
     /* Common function for get count for rows */
      function getRowsCount($table)  {
         global $conn;
