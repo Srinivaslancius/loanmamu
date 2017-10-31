@@ -83,7 +83,7 @@ $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeS
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
-                    <label for="form-control-2" class="control-label">Tenture Range</label>
+                    <label for="form-control-2" class="control-label">Tenure Range</label>
                     <input type="text" class="form-control" id="form-control-2" name="tenture_range" onkeypress="return isNumberKey(event)" required value="<?php echo $getSubCategories['tenture_range'];?>">
                     <div class="help-block with-errors"></div>
                   </div>

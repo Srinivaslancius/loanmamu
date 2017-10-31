@@ -1,5 +1,7 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
-<?php $getPostedResumesData = getAllData('posted_resumes'); $i=1; ?>
+<?php $getPostedResumesData = "SELECT * FROM posted_resumes ORDER BY id DESC";
+$getAllPostData = $conn->query($getPostedResumesData);
+ $i=1; ?>
       <div class="site-content">
         <div class="panel panel-default panel-table">
           <div class="panel-heading">
@@ -18,7 +20,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while ($row = $getPostedResumesData->fetch_assoc()) { ?>
+                  <?php while ($row = $getAllPostData->fetch_assoc()) { ?>
                   <tr>
                     <td><?php echo $i;?></td>
                     <td><?php echo $row['resume_title'];?></td>

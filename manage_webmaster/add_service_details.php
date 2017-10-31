@@ -79,7 +79,7 @@ if (!isset($_POST['submit']))  {
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
-                    <label for="form-control-2" class="control-label">Tenture Range</label>
+                    <label for="form-control-2" class="control-label">Tenure Range</label>
                     <input type="text" class="form-control" id="form-control-2" name="tenture_range" placeholder="Tenture Range" data-error="please enter Tenture Range." required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
                     <div class="help-block with-errors"></div>
                   </div>
