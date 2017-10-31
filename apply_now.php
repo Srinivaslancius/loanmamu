@@ -1,35 +1,29 @@
 <?php include_once "main_header.php"; ?>
 <?php
 if (!isset($_POST['submit']))  {
-  //If fail
-  //echo "fail";
 } else  {
-  //If success
+  
   $name = $_POST['name'];
-  $experience = $_POST['experience'];
-  $email = $_POST['email'];
-  $resume_title = $_POST['resume_title'];
   $mobile = $_POST['mobile'];
-  $fileToUpload = $_FILES["fileToUpload"]["name"];
+  $alt_mobile = $_POST['alt_mobile'];
+  $email = $_POST['email'];
+  $address = $_POST['address'];
+  $city = $_POST['city'];
+  $occupation = $_POST['occupation'];
+  $company_name = $_POST['company_name'];
+  $designation = $_POST['designation'];
+  $monthly_income = $_POST['monthly_income'];
+  $message = $_POST['message'];
   $created_at = date("Y-m-d h:i:s");
-  if($fileToUpload!='') {
-
-    $target_dir = "uploads/resumes/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-         $sql = "INSERT INTO posted_resumes (`name`,`experience`,`email`,`resume_title`,`mobile`,`resumes`,`created_at`) VALUES ('$name','$experience','$email', '$resume_title','$mobile', '$fileToUpload', '$created_at')";
-        if($conn->query($sql) === TRUE){
-          echo  "<script>alert('Message Sent successfully');window.location.href('post_resume.php');</script>";
+    $sql = "INSERT INTO apply_now (`name`,`mobile`,`alt_mobile`,`email`,`address`,`city`,`occupation`,`company_name`,`designation`,`monthly_income`,`message`,`created_at`) VALUES ('$name','$mobile','$alt_mobile', '$email','$address', '$city','$occupation','$company_name','$designation','$monthly_income','$message','$created_at')";
+        if($conn->query($sql) === TRUE){ 
+          echo  "<script>alert('Message Sent successfully');window.location.href('apply_now.php');</script>";
         }else {
-          echo "<script type='text/javascript'>window.location='current_openings.php?msg=fail'</script>";
-        }
-        //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-    } else {
-        echo "Sorry, there was an error uploading your file.";
+          echo "<script type='text/javascript'>window.location='apply_now.php?msg=fail'</script>";
     }
-  }
+
+    
+  
 }
 ?>
     <div class="page-header">
@@ -39,7 +33,7 @@ if (!isset($_POST['submit']))  {
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="index-2.html">Home</a></li>
-                            <li class="active">Careers</li>
+                            <li class="active">Apply Now</li>
                         </ol>
                     </div>
                 </div>
@@ -77,12 +71,12 @@ if (!isset($_POST['submit']))  {
                                             </div>
                                             </div>
                                             <!-- Text input-->
-                                            <div class="row">
+                                            <!-- <div class="row">
                                                 <div class="col-md-3 col-sm-12 col-xs-12">
                                                 </div>
                                                 <div class="col-md-5 col-sm-12 col-xs-12">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                            
                                             <div class="row">
                                                 <div class="col-md-3 col-sm-12 col-xs-12">
@@ -102,7 +96,7 @@ if (!isset($_POST['submit']))  {
                                                 <div class="col-md-4 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         Alternative Mobile:<label class="sr-only control-label" for="phone">Alternative Mobile<span class=" "> </span></label>
-                                                        <input id="mobile" name="mobile1" type="text" placeholder="Alternative Mobile" class="form-control input-md" required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
+                                                        <input id="alt_mobile" name="alt_mobile" type="text" placeholder="Alternative Mobile" class="form-control input-md" required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5 col-sm-12 col-xs-12">
@@ -127,7 +121,7 @@ if (!isset($_POST['submit']))  {
                                             <div class="col-md-4 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     Address:<label class="sr-only control-label" for="name">Address<span class=" "> </span></label>
-                                                    <input id="name" name="addredd" type="text" placeholder="Address" class="form-control input-md" required>
+                                                    <input id="name" name="address" type="text" placeholder="Address" class="form-control input-md" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-5 col-sm-12 col-xs-12">
@@ -140,7 +134,7 @@ if (!isset($_POST['submit']))  {
                                             <div class="col-md-4 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     City:<label class="sr-only control-label" for="name">City<span class=" "> </span></label>
-                                                    <input id="name" name="city" type="text" placeholder="City" class="form-control input-md" required>
+                                                    <input id="city" name="city" type="text" placeholder="City" class="form-control input-md" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-5 col-sm-12 col-xs-12">
@@ -168,7 +162,7 @@ if (!isset($_POST['submit']))  {
                                             <div class="col-md-4 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     Company Name:<label class="sr-only control-label" for="name">Company Name<span class=" "> </span></label>
-                                                    <input id="name" name="company_name" type="text" placeholder="Company Name" class="form-control input-md" required>
+                                                    <input id="company_name" name="company_name" type="text" placeholder="Company Name" class="form-control input-md" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-5 col-sm-12 col-xs-12">
@@ -181,7 +175,7 @@ if (!isset($_POST['submit']))  {
                                             <div class="col-md-4 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     Designation:<label class="sr-only control-label" for="name">Designation<span class=" "> </span></label>
-                                                    <input id="name" name="designation" type="text" placeholder="Designation" class="form-control input-md" required>
+                                                    <input id="designation" name="designation" type="text" placeholder="Designation" class="form-control input-md" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-5 col-sm-12 col-xs-12">
@@ -193,7 +187,7 @@ if (!isset($_POST['submit']))  {
                                                 <div class="col-md-4 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         Monthly Income:<label class="sr-only control-label" for="phone">Monthly Income<span class=" "> </span></label>
-                                                        <input id="monthly_income" name="monthly_income" type="text" placeholder="Monthly Income" class="form-control input-md"  pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
+                                                        <input id="monthly_income" name="monthly_income" type="text" placeholder="Monthly Income" class="form-control input-md"   >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5 col-sm-12 col-xs-12">
