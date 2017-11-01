@@ -12,6 +12,7 @@
                 <thead>
                   <tr>
                     <th>Id</th>
+                    <th>Category Name</th>
                     <th>Name</th>
                     <th>Logo</th>
                     <th>Description</th>
@@ -24,6 +25,9 @@
                   <?php while ($row = $getServicesData->fetch_assoc()) { ?>
                   <tr>
                     <td><?php echo $i;?></td>
+                    <td><?php $getCategories = getDataFromTables('categories',$status=NULL,'id',$row['category_id'],$activeStatus=NULL,$activeTop=NULL);
+                    $getCategory = $getCategories->fetch_assoc(); 
+                    echo $getCategory['category_name']; ?></td>
                     <td><?php echo $row['name'];?></td>
                     <td><img src="<?php echo $base_url . 'uploads/service_images/'.$row['image'] ?>" height="100" width="100"/></td>
                     <td><?php echo substr(strip_tags($row['description']), 0,500);?></td>

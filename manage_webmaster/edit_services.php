@@ -6,6 +6,7 @@ $id = $_GET['uid'];
     } else  {
             $name = $_POST['name'];
             $description = $_POST['description'];
+            $category_id = $_POST['category_id'];
             $service_percentage = $_POST['service_percentage'];
             $status = $_POST['status'];
             if($_FILES["fileToUpload"]["name"]!='') {
@@ -16,7 +17,7 @@ $id = $_GET['uid'];
               $getImgUnlink = getImageUnlink('image','services','id',$id,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                   $sql = "UPDATE `services` SET name = '$name',description = '$description',image = '$fileToUpload', service_percentage = '$service_percentage',status='$status' WHERE id = '$id' ";
+                   $sql = "UPDATE `services` SET name = '$name',description = '$description',category_id='$category_id', image = '$fileToUpload', service_percentage = '$service_percentage',status='$status' WHERE id = '$id' ";
                     if($conn->query($sql) === TRUE){
                       echo "<script type='text/javascript'>window.location='services.php?msg=success'</script>";
                     } else {
@@ -27,7 +28,7 @@ $id = $_GET['uid'];
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
-                $sql = "UPDATE `services` SET name = '$name',description = '$description', service_percentage = '$service_percentage' ,status='$status' WHERE id = '$id' ";
+                $sql = "UPDATE `services` SET name = '$name',description = '$description', category_id='$category_id',service_percentage = '$service_percentage',status='$status' WHERE id = '$id' ";
                 if($conn->query($sql) === TRUE){
                   echo "<script type='text/javascript'>window.location='services.php?msg=success'</script>";
                 } else {
@@ -45,8 +46,19 @@ $id = $_GET['uid'];
             <div class="row">
               <?php $getServices = getDataFromTables('services',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
               $getServices1 = $getServices->fetch_assoc(); ?>
+              <?php $getCategories = getDataFromTables('categories','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="POST" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="form-control-3" class="control-label">Choose your Category</label>
+                    <select id="form-control-3" name="category_id" class="custom-select" data-error="This field is required." required>
+                      <option value="">Select Category</option>
+                      <?php while($row = $getCategories->fetch_assoc()) {  ?>
+                        <option value="<?php echo $row['id']; ?>" <?php if($row['id'] == $getServices1['category_id']) { echo "selected=selected"; }?> ><?php echo $row['category_name']; ?></option>
+                    <?php } ?>
+                   </select>
+                    <div class="help-block with-errors"></div>
+                  </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Service Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="name" required value="<?php echo $getServices1['name'];?>">

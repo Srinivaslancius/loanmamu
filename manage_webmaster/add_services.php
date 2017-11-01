@@ -7,6 +7,7 @@ if (!isset($_POST['submit']))  {
   //If success
   $name = $_POST['name'];
   $description = $_POST['description'];
+  $category_id = $_POST['category_id'];
   $service_percentage = $_POST['service_percentage'];
   $fileToUpload = $_FILES["fileToUpload"]["name"];
   $status = $_POST['status'];
@@ -18,7 +19,7 @@ if (!isset($_POST['submit']))  {
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        $sql = "INSERT INTO services (`name`,`image`,`description`,`service_percentage`,`status`) VALUES ('$name','$fileToUpload','$description', '$service_percentage','$status')";
+        $sql = "INSERT INTO services (`name`,`image`,`category_id`,`description`,`service_percentage`,`status`) VALUES ('$name','$fileToUpload','$category_id','$description', '$service_percentage','$status')"; 
         if($conn->query($sql) === TRUE){
           echo "<script type='text/javascript'>window.location='services.php?msg=success'</script>";
         }else {
@@ -40,6 +41,17 @@ if (!isset($_POST['submit']))  {
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="POST" enctype="multipart/form-data">
+                  <?php $getCategories = getDataFromTables('categories','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
+                  <div class="form-group">
+                    <label for="form-control-3" class="control-label">Choose your Category</label>
+                    <select id="form-control-3" name="category_id" class="custom-select" data-error="This field is required." required>
+                      <option value="">Select Category</option>
+                      <?php while($row = $getCategories->fetch_assoc()) {  ?>
+                        <option value="<?php echo $row['id']; ?>"><?php echo $row['category_name']; ?></option>
+                      <?php } ?>
+                   </select>
+                    <div class="help-block with-errors"></div>
+                  </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Service Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="name" placeholder="Service Name" data-error="Please enter Service Name." required>
