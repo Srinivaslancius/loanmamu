@@ -28,7 +28,7 @@ $id = $_GET['uid'];
                 <form data-toggle="validator" method="POST">
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Question</label>
-                    <textarea name="question" class="form-control" id="question" data-error="Please enter Question." required><?php echo $getFaqs1['question'];?></textarea>
+                    <input type="text" class="form-control" id="form-control-2" name="question" required value="<?php echo $getFaqs1['question'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
@@ -60,7 +60,7 @@ $id = $_GET['uid'];
 <!-- <script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script> -->
 <script src="//cdn.ckeditor.com/4.7.0/full/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace( 'question' );
+    
     CKEDITOR.replace( 'answer' ); 
 </script>
 <style type="text/css">

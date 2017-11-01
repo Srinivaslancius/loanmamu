@@ -25,7 +25,7 @@ if (!isset($_POST['submit']))  {
                 <form data-toggle="validator" method="POST">
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Question</label>
-                    <textarea name="question" class="form-control" id="question" placeholder="Question" data-error="Please enter Question." required></textarea>
+                    <input type="text" class="form-control" id="form-control-2" name="question" placeholder="Question" data-error="Please enter Question.." required>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
@@ -56,7 +56,7 @@ if (!isset($_POST['submit']))  {
 <!-- Below script for ck editor -->
 <script src="//cdn.ckeditor.com/4.7.0/full/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace( 'question' );
+    
     CKEDITOR.replace( 'answer' );
 </script>
 <style type="text/css">
