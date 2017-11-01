@@ -11,7 +11,7 @@ $getAllServiceData = $conn->query($sqlMultiple);
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="index-2.html">Home</a></li>
-                            <li class="active">Car Loan</li>
+                            <li class="active">Loan Details</li>
                         </ol>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ $getAllServiceData = $conn->query($sqlMultiple);
 											<div class="rate-box">
 												<div class="text-center">
 													<h3 class="repayment"><?php echo $getAllProducts['tenture_range']; ?></h3>
-													<small>Tenture Range</small>
+													<small>Tenure Range</small>
 												</div>
 											</div>
 										</div>
