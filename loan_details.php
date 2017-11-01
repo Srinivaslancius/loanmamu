@@ -1,6 +1,9 @@
 <?php include_once "main_header.php"; error_reporting(0);?>
-<?php $getAllActiveServices = getAllDataCheckActive('service_details',0);  
+
+<?php 
 $id= $_GET['lid'];
+$getAllActiveServices = getIndividualDetails($id,'services','id');  
+
 $sqlMultiple="SELECT * FROM service_details WHERE  status=0 AND service_id = '$id' ";
 $getAllServiceData = $conn->query($sqlMultiple);
 ?>
@@ -10,8 +13,8 @@ $getAllServiceData = $conn->query($sqlMultiple);
                 <div class="col-md-12">
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li><a href="index-2.html">Home</a></li>
-                            <li class="active">Loan Details</li>
+                            <li><a href="index.php">Home</a></li>
+                            <li class="active"><?php echo $getAllActiveServices['name']; ?>  /  Loan Details</li>
                         </ol>
                     </div>
                 </div>
