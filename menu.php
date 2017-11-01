@@ -18,31 +18,45 @@
                             <li class="active"><a href="index.php" <?php if($page_name == 'index.php') {  ?> class="check_page" <?php } ?>   >Home</a></li>
                             <li><a href="about_us.php" <?php if($page_name == 'about_us.php') {  ?> class="check_page" <?php } ?>>About us</a></li>   
 
-
-                            <li><a href="#" <?php if($page_name == 'loan_details.php') {  ?> class="check_page" <?php } ?>>Services</a>
-                                    <ul class="sub-menu">
-                                    <?php $getCategory = getDataFromTables('categories','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
-                                    <?php while($getCat = $getCategory->fetch_assoc()) {  ?>
-
-                                        <li>
-                                            <a href="#"><?php echo $getCat['category_name']; ?></a>
-                                            <?php $getServices = getDataFromTables('services','0','category_id',$getCat['id'],$activeStatus=NULL,$activeTop=NULL);  ?>
-                                             <ul class="sub-menu">
-                                                <?php while($getServices1 = $getServices->fetch_assoc()) {  ?>
-                                                <li class="active">
-                                                    <a href="loan_details.php?lid=<?php echo $getServices1['id']; ?>"><?php echo $getServices1['name']; ?></a>
-                                                    
-                                                    
-                                                </li>
-                                                <?php } ?>                                              
-                                            </ul> 
-                                        </li>
-
-                                    <?php } ?>
+                            <li><a href="#" >Loans</a>                                
+                                <?php $getServices = getDataFromTables('services','0','category_id',1,$activeStatus=NULL,$activeTop=NULL);  ?>
+                                <ul class="sub-menu">
                                         
-                                    </ul>
-                            </li>  
-                                                   
+                                    <?php while($getServices1 = $getServices->fetch_assoc()) {  ?>
+                                    <li class="active">
+                                        <a href="loan_details.php?lid=<?php echo $getServices1['id']; ?>"><?php echo $getServices1['name']; ?></a>
+                                    </li>
+                                    <?php } ?>                                              
+                               
+                                </ul>
+                            </li> 
+
+                            <li><a href="#" >Insurances</a>                                
+                                <?php $getServices = getDataFromTables('services','0','category_id',2,$activeStatus=NULL,$activeTop=NULL);  ?>
+                                <ul class="sub-menu">
+                                        
+                                    <?php while($getServices1 = $getServices->fetch_assoc()) {  ?>
+                                    <li class="active">
+                                        <a href="loan_details.php?lid=<?php echo $getServices1['id']; ?>"><?php echo $getServices1['name']; ?></a>
+                                    </li>
+                                    <?php } ?>                                              
+                               
+                                </ul>
+                            </li> 
+
+                            <li><a href="#" >Credit Cards</a>                                
+                                <?php $getServices = getDataFromTables('services','0','category_id',3,$activeStatus=NULL,$activeTop=NULL);  ?>
+                                <ul class="sub-menu">
+                                        
+                                    <?php while($getServices1 = $getServices->fetch_assoc()) {  ?>
+                                    <li class="active">
+                                        <a href="loan_details.php?lid=<?php echo $getServices1['id']; ?>"><?php echo $getServices1['name']; ?></a>
+                                    </li>
+                                    <?php } ?>                                              
+                               
+                                </ul>
+                            </li> 
+                                                                             
                             <li><a href="current_openings.php" <?php if($page_name == 'post_resume.php' || $page_name == 'current_openings.php') {  ?> class="check_page" <?php } ?>>Careers</a>
                                 <ul>
                                 <li><a href="current_openings.php" <?php if($page_name == 'current_openings.php') {  ?> class="check_page" <?php } ?>>Current Opening</a></li>
