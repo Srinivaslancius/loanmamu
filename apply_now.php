@@ -1,4 +1,15 @@
 <?php include_once "main_header.php"; ?>
+<?php $id= $_GET['sid'];
+$sqlMultiple1="SELECT * FROM service_details WHERE  service_id = '$id' ";
+$getAllServiceData1 = $conn->query($sqlMultiple1);
+    while($getAllProducts1 = $getAllServiceData1->fetch_assoc()) { 
+        $bank_name = $getAllProducts1['bank_name'];;
+        $interest_rate_range = $getAllProducts1['interest_rate_range'];
+        $process_fee_range = $getAllProducts1['process_fee_range'];
+        $loan_amount = $getAllProducts1['loan_amount'];
+        $tenture_range = $getAllProducts1['tenture_range'];
+    }
+?>
 <?php
 if (!isset($_POST['submit']))  {
 } else  {
@@ -36,6 +47,11 @@ if (!isset($_POST['submit']))  {
         <h4>Designation: </h4><p>".$_POST['designation']."</p>
         <h4>Monthly Income: </h4><p>".$_POST['monthly_income']."</p>
         <h4>Message: </h4><p>".$_POST['message']."</p>
+        <h4>Bank Name: </h4><p>".$bank_name."</p>
+        <h4>Interest rete Range: </h4><p>".$interest_rate_range."</p>
+        <h4>Process Fee range: </h4><p>".$process_fee_range."</p>
+        <h4>Loan Amout: </h4><p>".$loan_amount."</p>
+        <h4>Tenure Range: </h4><p>".$tenture_range."</p>
         </body>
         </html>
         ";

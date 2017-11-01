@@ -18,7 +18,7 @@
                     <th>Interest Rate Range</th>
                     <th>Process Fee Range</th>
                     <th>Loan Amount</th>
-                    <th>Tenture Range</th>
+                    <th>Tenure Range</th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>
