@@ -1,5 +1,7 @@
 <?php include_once "main_header.php"; ?>
 <?php $id= $_GET['sid'];
+
+        $service_name = $getAllActiveServices['name'];
 $sqlMultiple1="SELECT * FROM service_details WHERE  id = '$id' ";
 $getAllServiceData1 = $conn->query($sqlMultiple1);
     $getAllProducts1 = $getAllServiceData1->fetch_assoc(); 
@@ -8,7 +10,11 @@ $getAllServiceData1 = $conn->query($sqlMultiple1);
         $process_fee_range = $getAllProducts1['process_fee_range'];
         $loan_amount = $getAllProducts1['loan_amount'];
         $tenture_range = $getAllProducts1['tenture_range'];
-    
+        
+$data = "SELECT * FROM services WHERE id ='".$getAllProducts1['service_id']."' " ;
+$getService = $conn->query($data);
+$getService1 = $getService->fetch_assoc();
+$service_name = $getService1['name'];
 ?>
 <?php
 if (!isset($_POST['submit']))  {
@@ -52,6 +58,7 @@ if (!isset($_POST['submit']))  {
         <h4>Process Fee range: </h4><p>".$process_fee_range."</p>
         <h4>Loan Amout: </h4><p>".$loan_amount."</p>
         <h4>Tenure Range: </h4><p>".$tenture_range."</p>
+        <h4>Service Name: </h4><p>".$service_name."</p>
         </body>
         </html>
         ";
