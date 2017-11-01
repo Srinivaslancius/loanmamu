@@ -25,7 +25,7 @@
                                     <?php while($getCat = $getCategory->fetch_assoc()) {  ?>
 
                                         <li>
-                                            <a href="login_details.php?lid=<?php echo $getCat['id']; ?>"><?php echo $getCat['category_name']; ?></a>
+                                            <a href="#"><?php echo $getCat['category_name']; ?></a>
                                             <?php $getServices = getDataFromTables('services','0','category_id',$getCat['id'],$activeStatus=NULL,$activeTop=NULL);  ?>
                                              <ul class="sub-menu">
                                                 <?php while($getServices1 = $getServices->fetch_assoc()) {  ?>
