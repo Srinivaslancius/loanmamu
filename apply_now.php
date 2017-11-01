@@ -1,14 +1,14 @@
 <?php include_once "main_header.php"; ?>
 <?php $id= $_GET['sid'];
-$sqlMultiple1="SELECT * FROM service_details WHERE  service_id = '$id' ";
+$sqlMultiple1="SELECT * FROM service_details WHERE  id = '$id' ";
 $getAllServiceData1 = $conn->query($sqlMultiple1);
-    while($getAllProducts1 = $getAllServiceData1->fetch_assoc()) { 
-        $bank_name = $getAllProducts1['bank_name'];;
+    $getAllProducts1 = $getAllServiceData1->fetch_assoc(); 
+        $bank_name = $getAllProducts1['bank_name'];
         $interest_rate_range = $getAllProducts1['interest_rate_range'];
         $process_fee_range = $getAllProducts1['process_fee_range'];
         $loan_amount = $getAllProducts1['loan_amount'];
         $tenture_range = $getAllProducts1['tenture_range'];
-    }
+    
 ?>
 <?php
 if (!isset($_POST['submit']))  {
@@ -35,7 +35,7 @@ if (!isset($_POST['submit']))  {
 
         $message = "<html><head><title>Loanmamu </title></head>
         <body>
-        <p>Application Form</p>
+        <h2>Application Form</h2>
         <h4>Name: </h4><p>".$_POST['name']."</p>
         <h4>Mobile: </h4><p>".$_POST['mobile']."</p>
         <h4>Alternative Mobile: </h4><p>".$_POST['alt_mobile']."</p>
@@ -55,7 +55,6 @@ if (!isset($_POST['submit']))  {
         </body>
         </html>
         ";
-
         // Always set content-type when sending HTML email
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
