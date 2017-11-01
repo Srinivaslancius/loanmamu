@@ -6,9 +6,9 @@ date_default_timezone_set("Asia/Kolkata");
 $setcon = 2;
 if($setcon == 1) {
 	$servername = "localhost";
-	$username = "";
+	$username = "root";
 	$password = "";
-	$dbname = "";
+	$dbname = "loanmamu";
 } else {
 	$servername = "192.168.0.100";	
 	$username = "root";
