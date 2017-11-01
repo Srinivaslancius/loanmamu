@@ -19,8 +19,7 @@
                             <li><a href="about_us.php" <?php if($page_name == 'about_us.php') {  ?> class="check_page" <?php } ?>>About us</a></li>   
 
 
-                            <li class="<?php if($page_name == 'login_details.php') { echo "active"; } ?>"> 
-                                <a href="javascript:;">Services<i class="fa fa-chevron-down"></i></a>
+                            <li><a href="#" <?php if($page_name == 'loan_details.php') {  ?> class="check_page" <?php } ?>>Services</a>
                                     <ul class="sub-menu">
                                     <?php $getCategory = getDataFromTables('categories','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                                     <?php while($getCat = $getCategory->fetch_assoc()) {  ?>
@@ -30,7 +29,7 @@
                                             <?php $getServices = getDataFromTables('services','0','category_id',$getCat['id'],$activeStatus=NULL,$activeTop=NULL);  ?>
                                              <ul class="sub-menu">
                                                 <?php while($getServices1 = $getServices->fetch_assoc()) {  ?>
-                                                <li>
+                                                <li class="active">
                                                     <a href="loan_details.php?lid=<?php echo $getServices1['id']; ?>"><?php echo $getServices1['name']; ?></a>
                                                     
                                                     
@@ -44,14 +43,15 @@
                                     </ul>
                             </li>  
                                                    
-                            <li><a href="#">Careers</a>
+                            <li><a href="current_openings.php" <?php if($page_name == 'post_resume.php' || $page_name == 'current_openings.php') {  ?> class="check_page" <?php } ?>>Careers</a>
                                 <ul>
-                                <li><a href="current_openings.php">Current Opening</a></li>
+                                <li><a href="current_openings.php" <?php if($page_name == 'current_openings.php') {  ?> class="check_page" <?php } ?>>Current Opening</a></li>
+                                <li><a href="post_resume.php" <?php if($page_name == 'post_resume.php') {  ?> class="check_page" <?php } ?>>Post Resume</a></li>
                                 
                                 </ul>
                             </li>
-                              <li><a href="faq.php">FAQ'S</a></li>
-                            <li><a href="contact_us.php">Contact us</a></li>
+                              <li><a href="faq.php" <?php if($page_name == 'faq.php') {  ?> class="check_page" <?php } ?>>FAQ'S</a></li>
+                            <li><a href="contact_us.php" <?php if($page_name == 'contact_us.php') {  ?> class="check_page" <?php } ?>>Contact us</a></li>
                         </ul>
                     </div>
                     <!-- /.navigation start-->
