@@ -60,7 +60,7 @@ if (!isset($_POST['submit']))  {
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="index-2.html">Home</a></li>
-                            <li class="active">Apply Now</li>
+                            <li class="active">Application form</li>
                         </ol>
                     </div>
                 </div>
