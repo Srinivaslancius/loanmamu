@@ -1,4 +1,4 @@
-  <?php $getAboutUsData = getDataFromTables('content_pages',$status=NULL,'id',1,$activeStatus=NULL,$activeTop=NULL);
+  <?php $getAboutUsData = getAllDataCheckActive1('content_pages','0',1);
       $getAboutUs = $getAboutUsData->fetch_assoc();?>
 <?php $getServices = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
   <div class="container">

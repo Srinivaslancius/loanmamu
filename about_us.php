@@ -1,5 +1,5 @@
 <?php include_once "main_header.php"; ?>
-<?php $getAboutUsData = getDataFromTables('content_pages',$status=NULL,'id',1,$activeStatus=NULL,$activeTop=NULL);
+<?php $getAboutUsData = getAllDataCheckActive1('content_pages','0',1);
       $getAboutUs = $getAboutUsData->fetch_assoc();?>
     <div class="page-header">
         <div class="container">
