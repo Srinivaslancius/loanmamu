@@ -1,5 +1,5 @@
 <?php include_once "main_header.php"; ?>
-<?php $getAboutUsData = getAllDataCheckActive1('content_pages','0',7);
+<?php $getAboutUsData = getAllDataCheckActive1('content_pages','0',6);
       $getAboutUs = $getAboutUsData->fetch_assoc();?>
     <div class="page-header">
         <div class="container">
@@ -8,7 +8,7 @@
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="index.php">Home</a></li>
-                            <li class="active">Terms of use</li>
+                            <li class="active">Privacy Policy</li>
                         </ol>
                     </div>
                 </div>
