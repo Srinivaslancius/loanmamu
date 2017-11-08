@@ -17,6 +17,8 @@
     </div>
     <div class=" ">
         <!-- content start -->
+        <?php $getContentData2 = getAllDataCheckActive1('content_pages','0',17);
+                        $getContent2 = $getContentData2->fetch_assoc(); ?>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -36,8 +38,8 @@
 								<div class="row">
 									<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
 										<div class="mb60 text-center section-title">
-											<h1>We are Here to Help You</h1>
-											<p>Our mission is to deliver reliable, latest news and opinions.</p>
+											<h1><?php echo $getContent2['title']; ?></h1>
+											<p><?php echo $getContent2['description']; ?></p>
 										</div>
 									</div>
 								</div>

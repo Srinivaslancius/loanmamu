@@ -53,6 +53,8 @@ if(mail($to,$subject,$message,$headers)) {
     </div>
     <div class=" ">
         <!-- content start -->
+        <?php $getContentData = getAllDataCheckActive1('content_pages','0',15);
+$getContent = $getContentData->fetch_assoc(); ?>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -62,8 +64,8 @@ if(mail($to,$subject,$message,$headers)) {
                                 <div class="col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                                     <div class="mb60  section-title text-center  ">
                                         <!-- section title start-->
-                                        <h1>Get In Touch</h1>
-                                        <p>Reach out to us &amp; we will respond as soon as we can.</p>
+                                        <h1><?php echo $getContent['title']; ?></h1>
+                                        <p><?php echo $getContent['description']; ?></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -107,13 +109,15 @@ if(mail($to,$subject,$message,$headers)) {
                             </div>
                             <!-- /.section title start-->
                         </div>
+                        <?php $getContentData1 = getAllDataCheckActive1('content_pages','0',16);
+                        $getContent1 = $getContentData1->fetch_assoc(); ?>
                         <div class="contact-us mb60">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="mb60  section-title">
                                         <!-- section title start-->
-                                        <h1>We are here to help you </h1>
-                                        <p class="lead">Various versions have evolved over the years sometimes by accident sometimes on purpose injected humour and the like.</p>
+                                        <h1><?php echo $getContent1['title']; ?> </h1>
+                                        <p class="lead"><?php echo $getContent1['description']; ?></p>
                                     </div>
                                     <!-- /.section title start-->
                                 </div>
