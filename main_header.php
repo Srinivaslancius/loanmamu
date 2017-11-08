@@ -58,7 +58,9 @@ $getSiteSettingsData  = $getData->fetch_assoc();
         <div class="container">
             <div class="row">
                 <div class="col-md-4 hidden-xs hidden-sm">
-                    <p class="mail-text">Welcome to our Loan Mamu</p>
+                    <?php $getChooseData5 = getAllDataCheckActive1('content_pages','0',12);
+                    $getChoose5 = $getChooseData5->fetch_assoc(); ?>
+                    <p class="mail-text"><?php echo $getChoose5['title'];?></p>
                 </div>
                 <div class="col-md-8 col-sm-12 text-right col-xs-12">
                     <div class="top-nav"><span class="top-text"><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a></span> <span class="top-text"><a href="emi_calculator.php">EMI calculator</a></span> </div>

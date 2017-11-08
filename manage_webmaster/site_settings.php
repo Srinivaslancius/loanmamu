@@ -3,13 +3,17 @@
 <?php  
  if (!isset($_POST['submit']))  {
             echo "";
-    } else  {            
+    } else  {
+    /*echo "<pre>";print_r($_POST);exit;   */   
     $id=1;
+
     $admin_title = $_POST['admin_title'];  
     $email = $_POST['email'];
     $fb_link = $_POST['fb_link'];
     $twitter_link = $_POST['twitter_link'];
     $gplus_link = $_POST['gplus_link'];
+    $inst_link = $_POST['inst_link'];
+    $linkden_link = $_POST['linkden_link'];
     $mobile = $_POST['mobile'];
     $footer_text = $_POST['footer_text'];
     $address = $_POST['address'];
@@ -30,7 +34,7 @@
         //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
 
         if (move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file)) {
-            $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile', logo = '$logo', footer_text='$footer_text', address='$address' WHERE id = '$id' ";
+            $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', inst_link ='$inst_link', linkden_link ='$linkden_link', mobile='$mobile', logo = '$logo', footer_text='$footer_text', address='$address' WHERE id = '$id' ";
             if($conn->query($sql) === TRUE){
                echo "<script type='text/javascript'>window.location='site_settings.php?msg=success'</script>";
             } else {
@@ -41,7 +45,7 @@
             echo "Sorry, there was an error uploading your file.";
         }
     }  else {
-        $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile',footer_text='$footer_text', address='$address' WHERE id = '$id' ";
+        $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', inst_link ='$inst_link', linkden_link ='$linkden_link', mobile='$mobile',footer_text='$footer_text', address='$address' WHERE id = '$id' ";
         if($conn->query($sql) === TRUE){
            echo "<script type='text/javascript'>window.location='site_settings.php?msg=success'</script>";
         } else {
@@ -83,17 +87,26 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="form-control-2" class="control-label">Google Plus Link</label>
+                    <label for="form-control-2" class="control-label">Twitter Link</label>
                     <input type="url" name="twitter_link" class="form-control" id="form-control-2" placeholder="Instagram Link" data-error="Please enter a valid Instagram Link." value="<?php echo $getSiteSettingsData['twitter_link'];?>" required>
                     <div class="help-block with-errors"></div>
                   </div>
 
                   <div class="form-group">
-                    <label for="form-control-2" class="control-label">Linkdin Link</label>
+                    <label for="form-control-2" class="control-label">Google Plus Link</label>
                     <input type="url" name="gplus_link" class="form-control" id="form-control-2" placeholder="Youtube Link" data-error="Please enter a valid Youtube Link." value="<?php echo $getSiteSettingsData['gplus_link'];?>" required>
                     <div class="help-block with-errors"></div>
                   </div>
-
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Instagram Link</label>
+                    <input type="url" name="inst_link" class="form-control" id="form-control-2" placeholder="Instagram Link" data-error="Please enter a valid Instagram Link." value="<?php echo $getSiteSettingsData['inst_link'];?>" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Linkdin Link</label>
+                    <input type="url" name="linkden_link" class="form-control" id="form-control-2" placeholder="Linkdin Link" data-error="Please enter a valid Linkdin Link." value="<?php echo $getSiteSettingsData['linkden_link'];?>" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Mobile</label>
                     <input type="text" name="mobile" class="form-control" id="form-control-2" maxlength="10"  pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" placeholder="Mobile" data-error="Please enter a valid Mobile." value="<?php echo $getSiteSettingsData['mobile'];?>" required>

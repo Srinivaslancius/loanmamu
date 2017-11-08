@@ -43,14 +43,16 @@
         </div>
     </div>
 	</div>
+    <?php $getChooseData1 = getAllDataCheckActive1('content_pages','0',8);
+$getChoose1 = $getChooseData1->fetch_assoc(); ?>
 	<div class="section-space80">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                     <div class="mb60 text-center section-title">
                         <!-- section title start-->
-                        <h1>Find Loan Products We Offers</h1>
-                        <p>We will match you with a loan program that meet your financial need. In short term liquidity, by striving to make funds available to them <strong>within 24 hours of application.</strong></p>
+                        <h1><?php echo $getChoose1['title'];?></h1>
+                        <p><?php echo $getChoose1['description'];?></p>
                     </div>
                     <!-- /.section title start-->
                 </div>
@@ -74,14 +76,16 @@
             </div>
         </div>
     </div>
+    <?php $getChooseData2 = getAllDataCheckActive1('content_pages','0',9);
+$getChoose2 = $getChooseData2->fetch_assoc(); ?>
     <div class="bg-white section-space80">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 col-xs-12">
                     <div class="mb100 text-center section-title">
                         <!-- section title start-->
-                        <h1>Fast &amp; Easy Application Process.</h1>
-                        <p>Suspendisse aliquet varius nunc atcibus lacus sit amet coed portaeri sque mami luctus viveed congue lobortis faucibus.</p>
+                        <h1><?php echo $getChoose2['title'];?></h1>
+                        <p><?php echo $getChoose2['description'];?></p>
                     </div>
                     <!-- /.section title start-->
                 </div>
@@ -124,15 +128,16 @@
         </div>
     </div>
  
-	
+	<?php $getChooseData3 = getAllDataCheckActive1('content_pages','0',10);
+$getChoose3 = $getChooseData3->fetch_assoc(); ?>
 	 <div class="bg-default section-space80">
         <div class="container">
             <div class="row">
                <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
                     <div class="mb60 text-center section-title">
                         <!-- section title start-->
-                        <h1 class="title-white">Some of our Awesome Testimonials</h1>
-                        <p>Here are a few words about us from our delighted customers</p>
+                        <h1 class="title-white"><?php echo $getChoose3['title'];?></h1>
+                        <p><?php echo $getChoose3['description'];?></p>
                     </div>
                     <!-- /.section title start-->
                 </div>
@@ -158,14 +163,16 @@
             </div>
         </div>
     </div>
+    <?php $getChooseData4 = getAllDataCheckActive1('content_pages','0',11);
+$getChoose4 = $getChooseData4->fetch_assoc(); ?>
     <div class="section-space80 bg-white">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
                     <div class="mb60 text-center section-title">
                         <!-- section title-->
-                        <h1>We are Here to Help You</h1>
-                        <p>Our mission is to deliver reliable, latest news and opinions.</p>
+                        <h1><?php echo $getChoose4['title'];?></h1>
+                        <p><?php echo $getChoose4['description'];?></p>
                     </div>
                     <!-- /.section title-->
                 </div>

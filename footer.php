@@ -32,12 +32,13 @@
                     <!-- /.widget footer -->
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6">
-                    <div class="widget-footer mt40">
+                    <div class="widget-social mt40">
                         <!-- widget footer -->
                         <ul class="listnone">
-                            <?php while($row = $getServices->fetch_assoc()) {  ?>
-                                    <li><a href="loan_details.php?lid=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a></li>
-                                <?php } ?>
+                            <li><a href="<?php echo $getSiteSettingsData['fb_link']; ?>" target="_blank"><i class="fa fa-facebook"></i>Facebook</a></li>
+                            <li><a href="<?php echo $getSiteSettingsData['twitter_link']; ?>" target="_blank"><i class="fa fa-twitter"></i>Twitter</a></li>
+                            <li><a href="<?php echo $getSiteSettingsData['gplus_link']; ?>" target="_blank"><i class="fa fa-google ples"></i>Google Plus</a></li>
+                            <!-- <li><a href="#"><i class="fa fa-linkedin"></i>Youtube</a></li> -->
                         </ul>
                     </div>
                     <!-- /.widget footer -->
@@ -46,9 +47,9 @@
                     <div class="widget-social mt40">
                         <!-- widget footer -->
                         <ul class="listnone">
-                            <li><a href="<?php echo $getSiteSettingsData['fb_link']; ?>" target="_blank"><i class="fa fa-facebook"></i>Facebook</a></li>
-                            <li><a href="<?php echo $getSiteSettingsData['twitter_link']; ?>" target="_blank"><i class="fa fa-google-plus"></i>Google Plus</a></li>
-                            <li><a href="<?php echo $getSiteSettingsData['gplus_link']; ?>" target="_blank"><i class="fa fa-linkedin"></i>Linked In</a></li>
+                            
+                            <li><a href="<?php echo $getSiteSettingsData['inst_link']; ?>" target="_blank"><i class="fa fa-instagram"></i>Instagram</a></li>
+                            <li><a href="<?php echo $getSiteSettingsData['linkden_link']; ?>" target="_blank"><i class="fa fa-linkedin"></i>Linkedin</a></li>
                             <!-- <li><a href="#"><i class="fa fa-linkedin"></i>Youtube</a></li> -->
                         </ul>
                     </div>
