@@ -8,7 +8,7 @@
     <div class="slider" id="slider">
         <!-- slider -->
         <?php while ($row = $getBannersData->fetch_assoc()) { ?>
-        <div class="slider-img"><img src="<?php echo $base_url . 'uploads/banner_images/'.$row['banner'] ?>" alt="Loan Mamu" class="">
+        <div class="slider-img"><img src="<?php echo $base_url . 'uploads/banner_images/'.$row['banner'] ?>" alt="Loan Mamu" class="" style="150" width="150">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
