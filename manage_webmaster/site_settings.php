@@ -7,7 +7,7 @@
     /*echo "<pre>";print_r($_POST);exit;   */   
     $id=1;
 
-    $admin_title = $_POST['admin_title'];  
+    $admin_title = $_POST['admin_title'];
     $email = $_POST['email'];
     $fb_link = $_POST['fb_link'];
     $twitter_link = $_POST['twitter_link'];

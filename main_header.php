@@ -63,7 +63,8 @@ $getSiteSettingsData  = $getData->fetch_assoc();
                     <p class="mail-text"><?php echo $getChoose5['title'];?></p>
                 </div>
                 <div class="col-md-8 col-sm-12 text-right col-xs-12">
-                    <div class="top-nav"><span class="top-text"><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a></span> <span class="top-text"><a href="emi_calculator.php">EMI calculator</a></span> </div>
+                    <div class="top-nav"><a href="<?php echo $getSiteSettingsData['fb_link']; ?>"  target="_blank"><i class="fa fa-facebook" style="color:white;"></i></a>&nbsp;<a href="<?php echo $getSiteSettingsData['twitter_link']; ?>" target="_blank"> <i class="fa fa-twitter" style="color:white;"></i></a>&nbsp;<a href="<?php echo $getSiteSettingsData['gplus_link']; ?>" target="_blank"> <i class="fa fa-google ples" style="color:white;"></i></a>&nbsp;<a href="<?php echo $getSiteSettingsData['inst_link']; ?>" target="_blank"> <i class="fa fa-instagram" style="color:white;"></i></a>  &nbsp;<a href="<?php echo $getSiteSettingsData['linkden_link']; ?>" target="_blank"> <i class="fa fa-linkedin" style="color:white;"></i></a>
+                        <span class="top-text"><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a></span> <span class="top-text"><a href="emi_calculator.php">EMI calculator</a></span> </div>
                 </div>
             </div>
         </div>
