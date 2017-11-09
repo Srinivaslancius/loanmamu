@@ -6,6 +6,7 @@ $id = $_GET['uid'];
     } else  {
             $service_id = $_POST['service_id'];
             $bank_name = $_POST['bank_name'];
+            $free_voucher = $_POST['free_voucher'];
             $interest_rate_range = $_POST['interest_rate_range'];
             $process_fee_range = $_POST['process_fee_range'];
             $loan_amount = $_POST['loan_amount'];
@@ -19,7 +20,7 @@ $id = $_GET['uid'];
               $getImgUnlink = getImageUnlink('bank_logo','service_details','id',$id,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["bank_logo"]["tmp_name"], $target_file)) {
-                   $sql = "UPDATE `service_details` SET service_id = '$service_id',bank_name = '$bank_name',interest_rate_range = '$interest_rate_range',process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range',bank_logo = '$bank_logo',description= '$description',status='$status' WHERE id = '$id' ";
+                   $sql = "UPDATE `service_details` SET service_id = '$service_id',bank_name = '$bank_name',free_voucher='$free_voucher',interest_rate_range = '$interest_rate_range',process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range',bank_logo = '$bank_logo',description= '$description',status='$status' WHERE id = '$id' ";
                     if($conn->query($sql) === TRUE){
                       echo "<script type='text/javascript'>window.location='service_details.php?msg=success'</script>";
                     } else {
@@ -30,7 +31,7 @@ $id = $_GET['uid'];
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
-                $sql = "UPDATE `service_details` SET service_id = '$service_id', bank_name = '$bank_name', interest_rate_range = '$interest_rate_range', process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range', description= '$description',status='$status' WHERE id = '$id' ";
+                $sql = "UPDATE `service_details` SET service_id = '$service_id', bank_name = '$bank_name',free_voucher = '$free_voucher', interest_rate_range = '$interest_rate_range', process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range', description= '$description',status='$status' WHERE id = '$id' ";
                 if($conn->query($sql) === TRUE){
                   echo "<script type='text/javascript'>window.location='service_details.php?msg=success'</script>";
                 } else {
@@ -65,6 +66,11 @@ $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeS
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Bank Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="bank_name" required value="<?php echo $getSubCategories['bank_name'];?>">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Free Voucher</label>
+                    <input type="text" class="form-control" id="free_voucher" name="free_voucher" placeholder="Free Voucher" data-error="please enter  free voucher." value="<?php echo $getSubCategories['free_voucher'];?>" required>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
