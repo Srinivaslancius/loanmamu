@@ -12,6 +12,7 @@ $id = $_GET['uid'];
             $loan_amount = $_POST['loan_amount'];
             $description = $_POST['description'];
             $tenture_range = $_POST['tenture_range'];
+            $status = $_POST['status'];
             if($_FILES["bank_logo"]["name"]!='') {
               $bank_logo = $_FILES["bank_logo"]["name"];
               $target_dir = "../uploads/service_details_images/";
@@ -31,7 +32,7 @@ $id = $_GET['uid'];
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
-                $sql = "UPDATE `service_details` SET service_id = '$service_id', bank_name = '$bank_name',free_voucher = '$free_voucher', interest_rate_range = '$interest_rate_range', process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range', description= '$description',status='$status' WHERE id = '$id' ";
+               $sql = "UPDATE `service_details` SET service_id = '$service_id', bank_name = '$bank_name',free_voucher = '$free_voucher', interest_rate_range = '$interest_rate_range', process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range', description= '$description',status='$status' WHERE id = '$id' ";
                 if($conn->query($sql) === TRUE){
                   echo "<script type='text/javascript'>window.location='service_details.php?msg=success'</script>";
                 } else {
