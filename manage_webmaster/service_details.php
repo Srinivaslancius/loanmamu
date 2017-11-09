@@ -57,6 +57,11 @@
                             </div>
                             <div class="row">
                               <div class="col-sm-2"></div>
+                              <div class="col-sm-4">Free Voucher: </div>
+                              <div class="col-sm-6"><?php echo $row['free_voucher'];?></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-2"></div>
                               <div class="col-sm-4">Interest rate Range: </div>
                               <div class="col-sm-6"><?php echo $row['interest_rate_range'];?></div>
                             </div>

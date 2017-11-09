@@ -7,6 +7,7 @@ if (!isset($_POST['submit']))  {
   //If success
   $service_id = $_POST['service_id'];
   $bank_name = $_POST['bank_name'];
+  $free_voucher = $_POST['free_voucher'];
   $check_list_name = $_POST['check_list_name'];
   $interest_rate_range = $_POST['interest_rate_range'];
   $process_fee_range = $_POST['process_fee_range'];
@@ -24,7 +25,7 @@ if (!isset($_POST['submit']))  {
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     
     if (move_uploaded_file($_FILES["bank_logo"]["tmp_name"], $target_file)) {
-        $sql = "INSERT INTO service_details (`service_id`, `bank_name`, `bank_logo`,`interest_rate_range`, `process_fee_range`, `loan_amount`, `tenture_range`, `description`,`created_at`, `status`) VALUES ('$service_id', '$bank_name', '$bank_logo', '$interest_rate_range', '$process_fee_range', '$loan_amount', '$tenture_range', '$description','$created_at', '$status')";
+        $sql = "INSERT INTO service_details (`service_id`, `bank_name`,`free_voucher`, `bank_logo`,`interest_rate_range`, `process_fee_range`, `loan_amount`, `tenture_range`, `description`,`created_at`, `status`) VALUES ('$service_id', '$bank_name', '$free_voucher','$bank_logo', '$interest_rate_range', '$process_fee_range', '$loan_amount', '$tenture_range', '$description','$created_at', '$status')";
       
         if($conn->query($sql) === TRUE){
           echo "<script type='text/javascript'>window.location='service_details.php?msg=success'</script>";
@@ -61,6 +62,11 @@ if (!isset($_POST['submit']))  {
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Bank Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="bank_name" placeholder="Bank Name" data-error="please enter bank name." required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Free Voucher</label>
+                    <input type="text" class="form-control" id="free_voucher" name="free_voucher" placeholder="Free Voucher" data-error="please enter  free voucher." required>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
