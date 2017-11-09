@@ -20,10 +20,10 @@
 
                             <?php $getCategory = "SELECT * FROM categories WHERE status = 0 ORDER BY id ASC"; 
                                   $getCategory = $conn->query($getCategory); ?>
-                                    <?php while($getCat = $getCategory->fetch_assoc()) {  ?>
+                                    <?php while($getCat = $getCategory->fetch_assoc()) { $cid= $getCat['id']; ?>
 
                             <li><a href="#" ><?php echo $getCat['category_name']; ?></a>                                
-                                <?php $getServices = getDataFromTables('services','0','category_id',$getCat['id'],$activeStatus=NULL,$activeTop=NULL);  ?>
+                                <?php $getServices = "SELECT * FROM services WHERE status = 0 AND category_id = '$cid' ORDER BY id DESC";  $getServices = $conn->query($getServices);  ?>
                                 <ul class="sub-menu">
                                         
                                     <?php while($getServices1 = $getServices->fetch_assoc()) {  ?>
