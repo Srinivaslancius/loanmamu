@@ -101,7 +101,7 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                 </div>
                                 <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <center><small><?php echo $getAllProducts['free_voucher']; ?></small></center>
+                                    <center><small style="color: #ff389c;font-weight: bold;"><?php echo $getAllProducts['free_voucher']; ?></small></center>
                                 </div>
                                 </div>
 
