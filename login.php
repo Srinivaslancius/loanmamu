@@ -6,7 +6,7 @@ if (!isset($_POST['submit']))  {
 }   else  {
     $user_name = $_POST['user_name'];
     $user_email = $_POST['user_email'];
-    $user_password = $_POST['user_password'];
+    $user_password = encryptPassword($_POST['user_password']);
 
     $login_details = "SELECT * FROM users WHERE user_email ='$user_email' AND user_password = '$user_password' ";
     $result = $conn->query($login_details);

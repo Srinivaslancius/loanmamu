@@ -5,7 +5,7 @@ if (!isset($_POST['submit']))  {
   
   $user_name = $_POST['user_name'];
   $user_mobile = $_POST['user_mobile'];
-  $user_password = $_POST['user_password'];
+  $user_password = encryptPassword($_POST['user_password']);
   $user_email = $_POST['user_email'];
   $created_at = date("Y-m-d h:i:s");
 
@@ -93,7 +93,7 @@ if (!isset($_POST['submit']))  {
                                                 <div class="col-md-5 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         Password:<label class="sr-only control-label" for="email">Password<span class=" "> </span></label>
-                                                        <input type="password"  id="password1" name="user_password"  placeholder="Password" class="form-control input-md" required>
+                                                        <input type="password"   name="user_password"  placeholder="Password" class="form-control input-md" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-12 col-xs-12">
