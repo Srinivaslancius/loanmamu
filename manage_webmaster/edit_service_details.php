@@ -5,7 +5,6 @@ $id = $_GET['sdid'];
             echo "fail";
     } else  {
             $service_id = $_POST['service_id'];
-            /*$bank_name = $_POST['bank_name'];*/
             $title1_value = $_POST['title1_value'];
             $title2_value = $_POST['title2_value'];
             $title3_value = $_POST['title3_value'];

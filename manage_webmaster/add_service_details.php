@@ -6,7 +6,6 @@ if (!isset($_POST['submit']))  {
 } else  {
   //If success
   $service_id = $_POST['service_id'];
-  //$bank_name = $_POST['bank_name'];
   $title1_value = $_POST['title1_value'];
   $title2_value = $_POST['title2_value'];
   $title3_value = $_POST['title3_value'];
@@ -59,13 +58,10 @@ if (!isset($_POST['submit']))  {
                    </select>
                     <div class="help-block with-errors"></div>
                   </div>
+                  <!--this below section for ajax call -->
                   <div id="service-details-section"></div>
-				          <!-- <div class="form-group">
-                    <label for="form-control-2" class="control-label">Bank Name</label>
-                    <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name" data-error="please enter  bank name." required>
-                    <div class="help-block with-errors"></div>
-                  </div> -->
-                  <div class="form-group">
+                  <!--ajax call end section--> 
+				          <div class="form-group">
                     <label for="form-control-2" class="control-label">Free Voucher</label>
                     <input type="text" class="form-control" id="free_voucher" name="free_voucher" placeholder="Free Voucher" data-error="please enter  free voucher." required>
                     <div class="help-block with-errors"></div>
