@@ -11,9 +11,9 @@ if (!isset($_POST['submit']))  {
 
     $sql = "INSERT INTO users (`user_name`,`user_mobile`,`user_password`,`user_email`,`created_at`) VALUES ('$user_name','$user_mobile','$user_password', '$user_email','$created_at')";
          if($conn->query($sql) === TRUE){
-                       echo "<script type='text/javascript'>alert('Data uploaded Successfully');window.location.href='login.php'</script>";
+                       echo "<script type='text/javascript'>alert('Data uploaded successfully');window.location.href='login.php'</script>";
                     } else {
-                       echo "<script type='text/javascript'>window.location='register.php?msg=fail'</script>";
+                       echo "<script type='text/javascript'>alert('Data updation failed !');window.location.href='register.php'</script>";
                     }
 }
 ?>

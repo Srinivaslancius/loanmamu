@@ -4,21 +4,39 @@
 <?php
 if (!isset($_POST['submit']))  {
 }   else  {
-    $user_name = $_POST['user_name'];
-    $user_email = $_POST['user_email'];
-    $user_password = encryptPassword($_POST['user_password']);
+    $forgot_email = $_POST['forgot_email'];
+    $sql ="SELECT * FROM users WHERE user_email = '".$_POST["forgot_email"]."' ";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $user_name = $row['user_name'];
+    $pwd = decryptPassword($row['user_password']);
+    if($result->num_rows>0){
+                    $to = $_POST['forgot_email'];
+                //$to = "$dataem";
+                $subject = "User Forgot Password";
 
-    $login_details = "SELECT * FROM users WHERE user_email ='$user_email' AND user_password = '$user_password' ";
-    $result = $conn->query($login_details);
-         if($row = $result->fetch_assoc())
-                {   
-                    
-                    $_SESSION['user_login_session_id'] =  $row['id'];
-                    $_SESSION['user_login_session_name'] = $row['user_name'];
-                    echo "<script>history.go(-2);</script>";
-                } else {
-                   
-                    echo "<script type='text/javascript'>alert('Email or Password are Wrong !');window.location.href='login.php'</script>";
+                $message = "<html><head><title>User New Password</title></head>
+                <body>
+                    <table rules='all' style='border-color: #666;' cellpadding='10'>
+                        <tr><td><strong>User Name:  </strong>$user_name</td></tr>
+                        <tr><td><strong>User Password:  </strong>$pwd</td></tr>
+                    </table>
+                </body>
+                </html>
+                ";
+                // Always set content-type when sending HTML email
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                // More headers
+                $headers .= 'From: <info@loanmamu.com>' . "\r\n";
+                // $headers .= 'Cc: myboss@example.com' . "\r\n";
+                    if(mail($to,$subject,$message,$headers)) {
+                      echo  "<script>alert('Password Sent To Your Email,Please Check.');window.location.href('login.php');</script>";
+                    }else{
+                        echo "fail";
+                    }
+                }  else{
+                    echo "<script>alert('Your Entered Email Not Found');</script>";
                 }
     }
 ?>
@@ -29,7 +47,7 @@ if (!isset($_POST['submit']))  {
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="index-2.html">Home</a></li>
-                            <li class="active">Sign In</li>
+                            <li class="active">Forgot Password</li>
                         </ol>
                     </div>
                 </div>
@@ -47,11 +65,11 @@ if (!isset($_POST['submit']))  {
                                 <div class="col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                                     <div class="mb60  section-title text-center  ">
                                         <!-- section title start-->
-                                        <h1>Sign In</h1>
+                                        <h1>Forgot Password</h1>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <form class="contact-us" method="post"  >
+                                    <form class="contact-us" method="post">
                                         <div class=" ">
                                             <div class="row">
                                                 <div class="col-md-3 col-sm-12 col-xs-12">
@@ -59,30 +77,18 @@ if (!isset($_POST['submit']))  {
                                                 <div class="col-md-5 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         Email:<label class="sr-only control-label" for="email">Email<span class=" "> </span></label>
-                                                        <input type="email" pattern="[^ @]*@[^ @]*" id="email" name="user_email"  placeholder="Email" class="form-control input-md" required>
+                                                        <input type="email" pattern="[^ @]*@[^ @]*" id="email" name="forgot_email"  placeholder="Email" class="form-control input-md" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-12 col-xs-12">
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-3 col-sm-12 col-xs-12">
-                                                </div>
-                                                <div class="col-md-5 col-sm-12 col-xs-12">
-                                                    <div class="form-group">
-                                                        Password:<label class="sr-only control-label" for="email">Password<span class=" "> </span></label>
-                                                        <input type="password"   name="user_password"  placeholder="Password" class="form-control input-md" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12">
-                                                </div>
-                                            </div>
+                                           
                                                 <div class="row">
                                                 <div class="col-md-3 col-sm-12 col-xs-12">
                                                 </div>
                                                 <div class="col-md-5 col-sm-12 col-xs-12">
                                                     <button type="submit" name="submit" class="btn btn-default">Submit</button>
-                                                    <a href="forgot_password.php">forgot password</a>
                                                 </div>
                                                 <div class="col-md-4 col-sm-12 col-xs-12">
                                                 </div>
