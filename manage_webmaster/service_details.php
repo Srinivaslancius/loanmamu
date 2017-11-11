@@ -58,27 +58,27 @@
                             </div>
                             <div class="row">
                               <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Title1: </div>
+                              <div class="col-sm-4">Title1 Value: </div>
                               <div class="col-sm-6"><?php echo $row['title1_value'];?></div>
                             </div>
                             <div class="row">
                               <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Title2: </div>
+                              <div class="col-sm-4">Title2 Value: </div>
                               <div class="col-sm-6"><?php echo $row['title2_value'];?></div>
                             </div>
                             <div class="row">
                               <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Title3: </div>
+                              <div class="col-sm-4">Title3 Value: </div>
                               <div class="col-sm-6"><?php echo $row['title3_value'];?></div>
                             </div>
                             <div class="row">
                               <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Title4: </div>
+                              <div class="col-sm-4">Title4 Value: </div>
                               <div class="col-sm-6"><?php echo $row['title4_value'];?></div>
                             </div>
                             <div class="row">
                               <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Title5: </div>
+                              <div class="col-sm-4">Title5 Value: </div>
                               <div class="col-sm-6"><?php echo $row['title5_value'];?></div>
                             </div>
                             <div class="row">
