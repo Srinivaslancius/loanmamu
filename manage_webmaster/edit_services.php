@@ -5,6 +5,11 @@ $id = $_GET['uid'];
             echo "fail";
     } else  {
             $name = $_POST['name'];
+            $title1 = $_POST['title1'];
+            $title2 = $_POST['title2'];
+            $title3 = $_POST['title3'];
+            $title4 = $_POST['title4'];
+            $title5 = $_POST['title5'];
             $description = $_POST['description'];
             $category_id = $_POST['category_id'];
             $service_percentage = $_POST['service_percentage'];
@@ -17,7 +22,7 @@ $id = $_GET['uid'];
               $getImgUnlink = getImageUnlink('image','services','id',$id,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                   $sql = "UPDATE `services` SET name = '$name',description = '$description',category_id='$category_id', image = '$fileToUpload', service_percentage = '$service_percentage',status='$status' WHERE id = '$id' ";
+                   $sql = "UPDATE `services` SET name = '$name',title1='$title1',title2='$title2',title3='$title3',title4='$title4',title5='$title5',description = '$description',category_id='$category_id', image = '$fileToUpload', service_percentage = '$service_percentage',status='$status' WHERE id = '$id' ";
                     if($conn->query($sql) === TRUE){
                       echo "<script type='text/javascript'>window.location='services.php?msg=success'</script>";
                     } else {
@@ -28,7 +33,7 @@ $id = $_GET['uid'];
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
-                $sql = "UPDATE `services` SET name = '$name',description = '$description', category_id='$category_id',service_percentage = '$service_percentage',status='$status' WHERE id = '$id' ";
+                $sql = "UPDATE `services` SET name = '$name',title1='$title1',title2='$title2',title3='$title3',title4='$title4',title5='$title5',description = '$description', category_id='$category_id',service_percentage = '$service_percentage',status='$status' WHERE id = '$id' ";
                 if($conn->query($sql) === TRUE){
                   echo "<script type='text/javascript'>window.location='services.php?msg=success'</script>";
                 } else {
@@ -62,6 +67,31 @@ $id = $_GET['uid'];
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Service Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="name" required value="<?php echo $getServices1['name'];?>">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Title1</label>
+                    <input type="text" class="form-control" id="form-control-2" name="title1" placeholder="Title1" data-error="Please enter bank title." required value="<?php echo $getServices1['title1'];?>">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Title2</label>
+                    <input type="text" class="form-control" id="form-control-2" name="title2" placeholder="Title2" data-error="Please enter interest title." required value="<?php echo $getServices1['title2'];?>">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Title3</label>
+                    <input type="text" class="form-control" id="form-control-2" name="title3" placeholder="Title3" data-error="Please enter Process Fee Title." required value="<?php echo $getServices1['title3'];?>">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Title4</label>
+                    <input type="text" class="form-control" id="form-control-2" name="title4" placeholder="Title4" data-error="Please enter Loan Amount Title." required value="<?php echo $getServices1['title4'];?>">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Title5</label>
+                    <input type="text" class="form-control" id="form-control-2" name="title5" placeholder="Title5" data-error="Please enter Tenure Title." required value="<?php echo $getServices1['title5'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">

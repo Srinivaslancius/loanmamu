@@ -1,17 +1,18 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
 <?php
-$id = $_GET['uid'];
+$id = $_GET['sdid'];
  if (!isset($_POST['submit']))  {
             echo "fail";
     } else  {
             $service_id = $_POST['service_id'];
-            $bank_name = $_POST['bank_name'];
+            /*$bank_name = $_POST['bank_name'];*/
+            $title1_value = $_POST['title1_value'];
+            $title2_value = $_POST['title2_value'];
+            $title3_value = $_POST['title3_value'];
+            $title4_value = $_POST['title4_value'];
+            $title5_value = $_POST['title5_value'];
             $free_voucher = $_POST['free_voucher'];
-            $interest_rate_range = $_POST['interest_rate_range'];
-            $process_fee_range = $_POST['process_fee_range'];
-            $loan_amount = $_POST['loan_amount'];
             $description = $_POST['description'];
-            $tenture_range = $_POST['tenture_range'];
             $status = $_POST['status'];
             if($_FILES["bank_logo"]["name"]!='') {
               $bank_logo = $_FILES["bank_logo"]["name"];
@@ -21,7 +22,7 @@ $id = $_GET['uid'];
               $getImgUnlink = getImageUnlink('bank_logo','service_details','id',$id,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["bank_logo"]["tmp_name"], $target_file)) {
-                   $sql = "UPDATE `service_details` SET service_id = '$service_id',bank_name = '$bank_name',free_voucher='$free_voucher',interest_rate_range = '$interest_rate_range',process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range',bank_logo = '$bank_logo',description= '$description',status='$status' WHERE id = '$id' ";
+                   $sql = "UPDATE `service_details` SET title1_value = '$title1_value',title2_value = '$title2_value',title3_value = '$title3_value',title4_value = '$title4_value',title5_value = '$title5_value',free_voucher='$free_voucher',bank_logo = '$bank_logo',description= '$description',status='$status' WHERE id = '$id' ";
                     if($conn->query($sql) === TRUE){
                       echo "<script type='text/javascript'>window.location='service_details.php?msg=success'</script>";
                     } else {
@@ -32,7 +33,7 @@ $id = $_GET['uid'];
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
-               $sql = "UPDATE `service_details` SET service_id = '$service_id', bank_name = '$bank_name',free_voucher = '$free_voucher', interest_rate_range = '$interest_rate_range', process_fee_range= '$process_fee_range', loan_amount = '$loan_amount', tenture_range = '$tenture_range', description= '$description',status='$status' WHERE id = '$id' ";
+                $sql = "UPDATE `service_details` SET title1_value = '$title1_value',title2_value = '$title2_value',title3_value = '$title3_value',title4_value = '$title4_value',title5_value = '$title5_value',free_voucher='$free_voucher',description= '$description',status='$status' WHERE id = '$id' ";
                 if($conn->query($sql) === TRUE){
                   echo "<script type='text/javascript'>window.location='service_details.php?msg=success'</script>";
                 } else {
@@ -55,8 +56,8 @@ $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeS
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="POST" enctype="multipart/form-data">
                   <div class="form-group">
-                    <label for="form-control-3" class="control-label">Choose your Service</label>
-                    <select id="form-control-3" name="service_id" class="custom-select" data-error="This field is required." required>
+                    <label for="form-control-3" class="control-label">Service</label>
+                    <select id="service_id" name="service_id" class="custom-select" data-error="This field is required." required onChange="getBankInfo(this.value);" disabled style="background-image:none;">
                       <option value="">Select Category</option>
                       <?php while($row = $getCategories->fetch_assoc()) {  ?>
                         <option value="<?php echo $row['id']; ?>" <?php if($row['id'] == $getSubCategories['service_id']) { echo "selected=selected"; }?> ><?php echo $row['name']; ?></option>
@@ -64,34 +65,12 @@ $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeS
                    </select>
                     <div class="help-block with-errors"></div>
                   </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Bank Name</label>
-                    <input type="text" class="form-control" id="form-control-2" name="bank_name" required value="<?php echo $getSubCategories['bank_name'];?>">
-                    <div class="help-block with-errors"></div>
-                  </div>
+                <!--this below section for ajax call -->  
+				        <div id="service-details-section"></div>
+                <!--ajax call end section--> 
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Free Voucher</label>
                     <input type="text" class="form-control" id="free_voucher" name="free_voucher" placeholder="Free Voucher" data-error="please enter  free voucher." value="<?php echo $getSubCategories['free_voucher'];?>" required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Interest rate Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="interest_rate_range" onkeypress="return isNumberKey(event)" required value="<?php echo $getSubCategories['interest_rate_range'];?>">
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Process Fee Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="process_fee_range" onkeypress="return isNumberKey(event)" required value="<?php echo $getSubCategories['process_fee_range'];?>">
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Loan Amount</label>
-                    <input type="text" class="form-control" id="form-control-2" name="loan_amount" onkeypress="return isNumberKey(event)" required value="<?php echo $getSubCategories['loan_amount'];?>">
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Tenure Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="tenture_range" onkeypress="return isNumberKey(event)" required value="<?php echo $getSubCategories['tenture_range'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
@@ -138,3 +117,50 @@ $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeS
         border: 1px solid #333;
     }
 </style>
+
+<script type="text/javascript">
+	getBankInfo($("#service_id").val());
+    function getBankInfo(val){
+		<?php
+			$id = $_GET['sdid'];
+		  $getQry = "SELECT * FROM service_details WHERE id ='$id' ";
+		  $excQry = $conn->query($getQry);
+		  $fetchDat = $excQry->fetch_assoc();
+		  $title_values=array();
+		  $title_values[0] = $fetchDat['title1_value'];
+		  $title_values[1] = $fetchDat['title2_value'];
+		  $title_values[2] = $fetchDat['title3_value'];
+		  $title_values[3] = $fetchDat['title4_value'];
+		  $title_values[4] = $fetchDat['title5_value'];				 
+		?>
+		var title_values = <?php echo json_encode($title_values); ?>;   
+        var service_id = $("#service_id").val();
+	    $('#service-details-section .form-group').remove();
+		if(service_id!='' ) {
+			$.ajax({
+				type:"post",
+				url:"ajax_get_service_details.php",
+				data:'service_id='+val,
+				success:function(value){
+				  if(value == 0) {
+					alert("Data Not Exists!");
+				  } else {
+					if (value.search(",,,") == -1) {
+						var data = value.split(",");
+						for (var i=0; i<data.length; i++) {
+							var group = '<div class="form-group">'
+											+ '   <label id="title'+(i+1) +'"  ></label>'
+											+ '   <input type="text" class="form-control" id="form-control-'+(i+1) +'" name="title'+(i+1) +'_value" data-error="Please enter title." placeholder="title'+(i+1) +'" value="'+title_values[i]+'" required>'
+										+ '</div>'
+							$('#service-details-section').append(group);			
+							$('#title'+(i+1)).text(data[i]);
+						}
+					} else {
+						alert("Data Not Exists!");
+					}  
+				  }
+				}
+			  });
+		  }
+		}    
+</script>

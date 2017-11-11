@@ -1,7 +1,7 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
 <?php
  $getBannersData = getDataFromTables('service_details',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);  
-$id = $_GET['bid'];
+$id = $_GET['sdid'];
 //echo $music_number;
 $target_dir = '../uploads/service_details_images/';
 $getImgUnlink = getImageUnlink('bank_logo','service_details','id',$id,$target_dir);

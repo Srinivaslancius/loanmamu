@@ -1,5 +1,16 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
 <?php $getServicesData = getAllDataWithActiveRecent('service_details'); $i=1; ?>
+
+<?php $getQry = "SELECT * FROM service_details WHERE status = 0";
+      $excQry = $conn->query($getQry);
+      $getSerId = $excQry->fetch_assoc();
+?>
+<?php 
+      /*$serId = $getSerId['service_id'];
+      $sql = "SELECT * FROM services WHERE id=14";
+      $res = $conn->query($sql);
+      $getData = $res->fetch_assoc();*/
+?>
       <div class="site-content">
         <div class="panel panel-default panel-table">
           <div class="panel-heading">
@@ -11,14 +22,15 @@
               <table class="table table-striped table-bordered dataTable" id="table-1">
                 <thead>
                   <tr>
-                    <th>Id</th>
-                    <th>Bank Name</th>
+                    <th>Id</th>  
+					<!-- <th>Bank Name</th> -->
                     <th>Service Name</th>
                     <th>Bank Logo</th>
-                    <th>Interest Rate Range</th>
-                    <th>Process Fee Range</th>
-                    <th>Loan Amount</th>
-                    <th>Tenure Range</th>
+					<th>Title1</th>
+                    <th>Title2</th>
+                    <th>Title3</th>
+                    <th>Title4</th>
+                    <th>Title5</th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>
@@ -27,16 +39,17 @@
                   <?php while ($row = $getServicesData->fetch_assoc()) { ?>
                   <tr>
                     <td><?php echo $i;?></td>
-                    <td><?php echo $row['bank_name'];?></td>
+					<!-- <td><?php echo $row['bank_name'];?></td> -->  
                     <td><?php $getServices = getDataFromTables('services',$status=NULL,'id',$row['service_id'],$activeStatus=NULL,$activeTop=NULL);
                       $getService = $getServices->fetch_assoc(); echo $getService['name']; ?></td>
                     <td><img src="<?php echo $base_url . 'uploads/service_details_images/'.$row['bank_logo'] ?>" height="100" width="100"/></td>
-                    <td><?php echo $row['interest_rate_range'];?></td>
-                    <td><?php echo $row['process_fee_range'];?></td>
-                    <td><?php echo $row['loan_amount'];?></td>
-                    <td><?php echo $row['tenture_range'];?></td>
+					<td><?php echo $row['title1_value'];?></td>
+                    <td><?php echo $row['title2_value'];?></td>
+                    <td><?php echo $row['title3_value'];?></td>
+                    <td><?php echo $row['title4_value'];?></td>
+                    <td><?php echo $row['title5_value'];?></td>
                     <td><?php if ($row['status']==0) { echo "<span class='label label-outline-success check_active open_cursor' data-incId=".$row['id']." data-status=".$row['status']." data-tbname='service_details'>Active</span>" ;} else { echo "<span class='label label-outline-info check_active open_cursor' data-status=".$row['status']." data-incId=".$row['id']." data-tbname='service_details'>In Active</span>" ;} ?></td>
-                    <td> <a href="edit_service_details.php?uid=<?php echo $row['id']; ?>"><i class="zmdi zmdi-edit"></i></a> &nbsp; <a href="#"><i class="zmdi zmdi-eye zmdi-hc-fw" data-toggle="modal" data-target="#<?php echo $row['id']; ?>" class=""></i></a> &nbsp; <a href="delete_service_details.php?bid=<?php echo $row['id']; ?>"><i class="zmdi zmdi-delete zmdi-hc-fw" onclick="return confirm('Are you sure you want to delete?')"></i></a></td>
+                    <td> <a href="edit_service_details.php?sdid=<?php echo $row['id']; ?>"><i class="zmdi zmdi-edit"></i></a> &nbsp; <a href="#"><i class="zmdi zmdi-eye zmdi-hc-fw" data-toggle="modal" data-target="#<?php echo $row['id']; ?>" class=""></i></a> &nbsp; <a href="delete_service_details.php?sdid=<?php echo $row['id']; ?>"><i class="zmdi zmdi-delete zmdi-hc-fw" onclick="return confirm('Are you sure you want to delete?')"></i></a></td>
                     <!-- Open Modal Box  here -->
                     <div id="<?php echo $row['id']; ?>" class="modal fade" tabindex="-1" role="dialog">
                       <div class="modal-dialog">

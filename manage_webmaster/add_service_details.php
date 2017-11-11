@@ -6,13 +6,13 @@ if (!isset($_POST['submit']))  {
 } else  {
   //If success
   $service_id = $_POST['service_id'];
-  $bank_name = $_POST['bank_name'];
+  //$bank_name = $_POST['bank_name'];
+  $title1_value = $_POST['title1_value'];
+  $title2_value = $_POST['title2_value'];
+  $title3_value = $_POST['title3_value'];
+  $title4_value = $_POST['title4_value'];
+  $title5_value = $_POST['title5_value'];
   $free_voucher = $_POST['free_voucher'];
-  $check_list_name = $_POST['check_list_name'];
-  $interest_rate_range = $_POST['interest_rate_range'];
-  $process_fee_range = $_POST['process_fee_range'];
-  $loan_amount = $_POST['loan_amount'];
-  $tenture_range = $_POST['tenture_range'];
   $description = $_POST['description'];
   $bank_logo = $_FILES["bank_logo"]["name"];
    $status = $_POST['status'];
@@ -25,7 +25,7 @@ if (!isset($_POST['submit']))  {
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     
     if (move_uploaded_file($_FILES["bank_logo"]["tmp_name"], $target_file)) {
-        $sql = "INSERT INTO service_details (`service_id`, `bank_name`,`free_voucher`, `bank_logo`,`interest_rate_range`, `process_fee_range`, `loan_amount`, `tenture_range`, `description`,`created_at`, `status`) VALUES ('$service_id', '$bank_name', '$free_voucher','$bank_logo', '$interest_rate_range', '$process_fee_range', '$loan_amount', '$tenture_range', '$description','$created_at', '$status')";
+        $sql = "INSERT INTO service_details (`service_id`, `title1_value`,`title2_value`,`title3_value`,`title4_value`,`title5_value`,`free_voucher`, `bank_logo`,`description`,`created_at`, `status`) VALUES ('$service_id', '$title1_value','$title2_value','$title3_value','$title4_value','$title5_value','$free_voucher','$bank_logo', '$description','$created_at', '$status')";
       
         if($conn->query($sql) === TRUE){
           echo "<script type='text/javascript'>window.location='service_details.php?msg=success'</script>";
@@ -51,7 +51,7 @@ if (!isset($_POST['submit']))  {
                   <?php $getCategories = getDataFromTables('services','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose your Service</label>
-                    <select id="form-control-3" name="service_id" class="custom-select" data-error="This field is required." required>
+                    <select  id="service_id" name="service_id" class="custom-select" data-error="This field is required." required onChange="getBankInfo(this.value);">
                       <option value="">Select Service</option>
                       <?php while($row = $getCategories->fetch_assoc()) {  ?>
                         <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
@@ -59,34 +59,15 @@ if (!isset($_POST['submit']))  {
                    </select>
                     <div class="help-block with-errors"></div>
                   </div>
-                  <div class="form-group">
+                  <div id="service-details-section"></div>
+				          <!-- <div class="form-group">
                     <label for="form-control-2" class="control-label">Bank Name</label>
-                    <input type="text" class="form-control" id="form-control-2" name="bank_name" placeholder="Bank Name" data-error="please enter bank name." required>
+                    <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name" data-error="please enter  bank name." required>
                     <div class="help-block with-errors"></div>
-                  </div>
+                  </div> -->
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Free Voucher</label>
                     <input type="text" class="form-control" id="free_voucher" name="free_voucher" placeholder="Free Voucher" data-error="please enter  free voucher." required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Interest rate Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="interest_rate_range" placeholder="Interest rate Range" data-error="please enter Interest rate Range."    onkeypress="return isNumberKey(event)" required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Process Fee Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="process_fee_range" placeholder="Process Fee Range" data-error="please enter Process Fee Range."  onkeypress="return isNumberKey(event)" required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Loan Amount</label>
-                    <input type="text" class="form-control" id="form-control-2" name="loan_amount" placeholder="Loan Amount" data-error="please enter Loan Amount."  onkeypress="return isNumberKey(event)" required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Tenure Range</label>
-                    <input type="text" class="form-control" id="form-control-2" name="tenture_range" placeholder="Tenture Range" data-error="please enter Tenture Range."  onkeypress="return isNumberKey(event)" required>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
@@ -95,7 +76,7 @@ if (!isset($_POST['submit']))  {
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
-                    <label for="form-control-4" class="control-label">Bank Logo</label>
+                    <label for="form-control-4" class="control-label">Logo</label>
                     <img id="output" height="100" width="100"/>
                     <label class="btn btn-default file-upload-btn">
                       Choose file...
@@ -133,3 +114,35 @@ if (!isset($_POST['submit']))  {
         border: 1px solid #333;
     }
 </style>
+<script type="text/javascript">
+    function getBankInfo(val){
+      var service_id = $("#service_id").val();
+	  $('#service-details-section .form-group').remove();
+      if(service_id!='' ) {
+        $.ajax({
+            type:"post",
+            url:"ajax_get_service_details.php",
+            data:'service_id='+val,
+            success:function(value){
+              if(value == 0) {
+                alert("Data Not Exists!");
+              } else {
+				if (value.search(",,,") == -1) {
+					var data = value.split(",");
+					for (var i=0; i<data.length; i++) {
+						var group = '<div class="form-group">'
+										+ '   <label id="title'+(i+1) +'"  ></label>'
+										+ '   <input type="text" class="form-control" id="form-control-'+(i+1) +'" name="title'+(i+1) +'_value" data-error="Please enter title." placeholder="title'+(i+1) +'" required>'
+									+ '</div>'
+						$('#service-details-section').append(group);			
+						$('#title'+(i+1)).text(data[i]);
+					}
+				} else {
+					alert("Data Not Exists!");
+				}  
+              }
+            }
+          });
+      }
+    }        
+</script>

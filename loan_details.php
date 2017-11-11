@@ -34,6 +34,56 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                 </div>
                             </div>
                         </div>
+                        <?php $getQry = "SELECT * FROM service_details WHERE  service_id= '$id' AND status = 0";
+                                  $excQry = $conn->query($getQry);
+                                  $getSerId = $excQry->fetch_assoc();
+                            ?>
+                            <?php 
+                                  $sql = "SELECT * FROM services WHERE id='$id' AND status = 0";
+                                  $res = $conn->query($sql);
+                                  $getData = $res->fetch_assoc();
+                            ?>
+                        <div class="compare-block prdct">
+                            <div class="compare-row outline pinside0 padd0" style="padding-top:30px">
+                                <div class="row" style="padding-bottom:-150px">
+                                     <div class="col-md-2 col-sm-12 col-xs-12">
+                                            <div class="text-center">
+                                                    <h5><?php echo $getData['title1']?></h5>
+                                                </div>                                      
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        
+                                                <div class="text-center">
+                                                    <h5><?php echo $getData['title2']?></h5>
+                                                </div>                                          
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        
+                                                <div class="text-center">                                               
+                                                    <h5><?php echo $getData['title3']?></h5>
+                                                </div>                                          
+                                    </div>
+                                    <div class="col-md-2 col-sm-3 col-xs-12">
+                                        
+                                                <div class="text-center">
+                                                    
+                                                    <h5><?php echo $getData['title4']?></h5>                                        
+                                    </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                                                            
+                                                <div class="text-center">                                               
+                                                    <h5><?php echo $getData['title5']?></h5>
+                                                </div>                                                                                  
+                                    </div>
+                                    <div class="col-md-2 col-sm-3 col-xs-12">
+                                        <div class="rate-counter-block-one" style="border:0px">
+                                        
+                                      </div>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
                         <?php if($getAllServiceData->num_rows > 0) { ?>
                         <div class="compare-block mb30 prdct">
                             <div class="compare-row outline pinside30 padd0">
@@ -43,25 +93,17 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                         <div class="rate-counter-block-one">
                                             <div class="rate-box">
                                                 <center><img src="<?php echo $base_url . 'uploads/service_details_images/'.$getAllProducts['bank_logo'] ?>" alt="Loan Mamu" height="50" width="50"><?php echo $getAllProducts['bank_name']; ?></center>
+                                                <p style="text-align:center"><?php echo $getAllProducts['title1_value']; ?></p>
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-2 col-sm-2 col-xs-12 paddrl0">
-                                        <div class="rate-counter-block-one">
+                                        <div class="rate-counter-block-one">    
                                             <div class="rate-box">
                                                 <div class="text-center">
-                                                    <h3 class="rate"><?php echo $getAllProducts['interest_rate_range']; ?></h3>
-                                                    <small>Interest rate Range</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2 col-xs-12 paddrl0">
-                                        <div class="rate-counter-block-one">
-                                            <div class="rate-box">
-                                                <div class="text-center">
-                                                    <h3 class="fees"><?php echo $getAllProducts['process_fee_range']; ?></h3>
-                                                    <small>Process Fee Range</small>
+                                                    <h3 class="fees"><?php echo $getAllProducts['title2_value']; ?></h3>
+                                                    <!-- <small>Process Fee Range</small> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -70,8 +112,8 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                         <div class="rate-counter-block-one">
                                             <div class="rate-box">
                                                 <div class="text-center">
-                                                    <h3 class="compare-rate"><?php echo $getAllProducts['loan_amount']; ?></h3>
-                                                    <small>Loan Amount</small>
+                                                    <h3 class="compare-rate"><?php echo $getAllProducts['title3_value']; ?></h3>
+                                                    <!-- <small>Loan Amount</small> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -80,8 +122,18 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                         <div class="rate-counter-block-one">
                                             <div class="rate-box">
                                                 <div class="text-center">
-                                                    <h3 class="repayment"><?php echo $getAllProducts['tenture_range']; ?></h3>
-                                                    <small>Tenure Range</small>
+                                                    <h3 class="repayment"><?php echo $getAllProducts['title4_value']; ?></h3>
+                                                    <!-- <small>Tenure Range</small> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="col-md-2 col-sm-2 col-xs-12 paddrl0">
+                                        <div class="rate-counter-block-one">
+                                            <div class="rate-box">
+                                                <div class="text-center">
+                                                    <h3 class="repayment"><?php echo $getAllProducts['title5_value']; ?></h3>
+                                                    <!-- <small>Tenure Range</small> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -101,7 +153,7 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                 </div>
                                 <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <center><small style="color: #ff389c;font-weight: bold;"><?php echo $getAllProducts['free_voucher']; ?></small></center>
+                                    <center><small style="color:#f90e83"><?php echo $getAllProducts['free_voucher']; ?></small></center>
                                 </div>
                                 </div>
 

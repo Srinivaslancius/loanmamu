@@ -6,6 +6,11 @@ if (!isset($_POST['submit']))  {
 } else  {
   //If success
   $name = $_POST['name'];
+  $title1 = $_POST['title1'];
+  $title2 = $_POST['title2'];
+  $title3 = $_POST['title3'];
+  $title4 = $_POST['title4'];
+  $title5 = $_POST['title5'];
   $description = $_POST['description'];
   $category_id = $_POST['category_id'];
   $service_percentage = $_POST['service_percentage'];
@@ -19,7 +24,7 @@ if (!isset($_POST['submit']))  {
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        $sql = "INSERT INTO services (`name`,`image`,`category_id`,`description`,`service_percentage`,`status`) VALUES ('$name','$fileToUpload','$category_id','$description', '$service_percentage','$status')"; 
+        $sql = "INSERT INTO services(`name`,`title1`,`title2`,`title3`,`title4`,`title5`,`description`,`image`,`category_id`,`service_percentage`,`status`) VALUES('$name','$title1','$title2','$title3','$title4','$title5','$description','$fileToUpload','$category_id','$service_percentage','$status')";
         if($conn->query($sql) === TRUE){
           echo "<script type='text/javascript'>window.location='services.php?msg=success'</script>";
         }else {
@@ -55,6 +60,31 @@ if (!isset($_POST['submit']))  {
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Service Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="name" placeholder="Service Name" data-error="Please enter Service Name." required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Title1</label>
+                    <input type="text" class="form-control" id="form-control-2" name="title1" placeholder="Title1" data-error="Please enter bank title." required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Title2</label>
+                    <input type="text" class="form-control" id="form-control-2" name="title2" placeholder="Title2" data-error="Please enter interest title." required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Title3</label>
+                    <input type="text" class="form-control" id="form-control-2" name="title3" placeholder="Title3" data-error="Please enter Process Fee Title." required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Title4</label>
+                    <input type="text" class="form-control" id="form-control-2" name="title4" placeholder="Title4" data-error="Please enter Loan Amount Title." required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Title5</label>
+                    <input type="text" class="form-control" id="form-control-2" name="title5" placeholder="Title5" data-error="Please enter Tenure Title." required>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
