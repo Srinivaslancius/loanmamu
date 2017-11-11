@@ -63,7 +63,12 @@ $getSiteSettingsData  = $getData->fetch_assoc();
                     <p class="mail-text"><?php echo $getChoose5['title'];?></p>
                 </div>
                 <div class="col-md-8 col-sm-12 text-right col-xs-12">
-                    <div class="top-nav"><span class="top-text"><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a></span> <span class="top-text"><a href="emi_calculator.php">EMI calculator</a></span> </div>
+                    <a href="login.php" style=>login</a>
+                    <div class="top-nav">
+                        <?php if(isset($_SESSION['user_login_session_id']) && $_SESSION['user_login_session_id']!='') { ?> 
+                        <a href="index.php" style="color:white;"><?php echo $_SESSION['user_login_session_name']; ?> </a>  | <a href="logout.php" style="color:white;"> Logout </a> <?php } else { ?>
+
+                        <a href="login.php" style="color:white;">SignIn</a> <?php } ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="register.php" style="color:white;">sign up</a><span class="top-text"><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'] ?></a></span> <span class="top-text"><a href="emi_calculator.php">EMI calculator</a></span> </div>
                 </div>
             </div>
         </div>
