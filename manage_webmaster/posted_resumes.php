@@ -15,8 +15,7 @@ $getAllPostData = $conn->query($getPostedResumesData);
                   <tr>
                     <th>Id</th>
                     <th>Title</th>
-                    <th>Description</th>
-                    <th>Resumes</th>
+                    <th>Resume</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -24,7 +23,6 @@ $getAllPostData = $conn->query($getPostedResumesData);
                   <tr>
                     <td><?php echo $i;?></td>
                     <td><?php echo $row['resume_title'];?></td>
-                    <td><?php echo substr(strip_tags($row['resume_description']), 0,150);?></td>
                     <td><a href="<?php echo $base_url . 'uploads/resumes/'.$row['resumes'] ?>"><img src="<?php echo $base_url.'uploads/index.jpg'?>" height="35px" width="35px" title="<?php echo $row['resumes'];?>"></a></td>
                     
                     <!-- <td><a href="<?php echo $row['resumes'];?>"><img src="<?php echo $base_url.'uploads/index.jpg'?>" alt="" height="60" /></a></td> -->
