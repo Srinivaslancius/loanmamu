@@ -103,7 +103,6 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                             <div class="rate-box">
                                                 <div class="text-center">
                                                     <h3 class="fees"><?php echo $getAllProducts['title2_value']; ?></h3>
-                                                    <!-- <small>Process Fee Range</small> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -113,7 +112,6 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                             <div class="rate-box">
                                                 <div class="text-center">
                                                     <h3 class="compare-rate"><?php echo $getAllProducts['title3_value']; ?></h3>
-                                                    <!-- <small>Loan Amount</small> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -123,7 +121,6 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                             <div class="rate-box">
                                                 <div class="text-center">
                                                     <h3 class="repayment"><?php echo $getAllProducts['title4_value']; ?></h3>
-                                                    <!-- <small>Tenure Range</small> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -133,7 +130,6 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                             <div class="rate-box">
                                                 <div class="text-center">
                                                     <h3 class="repayment"><?php echo $getAllProducts['title5_value']; ?></h3>
-                                                    <!-- <small>Tenure Range</small> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -144,7 +140,9 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                             <center>
                                                 <div class="btn-group">
                                                     <a href="javascript:void(0);" id="btn_loan" onClick="showDetails(<?php echo $i; ?>);" class="btn btn-default btn-sm btn_loan">Details</a>
+                                                    <?php if(!empty($_SESSION['user_login_session_id'])){ ?>
                                                     <a href="apply_now.php?sid=<?php echo $getAllProducts['id']; ?>" class="btn btn-default btn-sm">Apply</a>
+                                                    <?php } else{ ?><a href="login.php" class="btn btn-default btn-sm">Apply</a><?php  } ?>
                                                 </div>
                                             </center>
                                             </div>
@@ -153,7 +151,7 @@ $getAllServiceData = $conn->query($sqlMultiple);
                                 </div>
                                 <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <center><small style="color:#f90e83"><?php echo $getAllProducts['free_voucher']; ?></small></center>
+                                    <p>&nbsp;&nbsp;<small style="color:#f90e83"><?php echo $getAllProducts['free_voucher']; ?></small></p>
                                 </div>
                                 </div>
 
