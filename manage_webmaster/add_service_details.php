@@ -59,13 +59,10 @@ if (!isset($_POST['submit']))  {
                    </select>
                     <div class="help-block with-errors"></div>
                   </div>
+                  <!--this below section for ajax call -->
                   <div id="service-details-section"></div>
-				          <!-- <div class="form-group">
-                    <label for="form-control-2" class="control-label">Bank Name</label>
-                    <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name" data-error="please enter  bank name." required>
-                    <div class="help-block with-errors"></div>
-                  </div> -->
-                  <div class="form-group">
+                  <!--ajax call end section--> 
+				          <div class="form-group">
                     <label for="form-control-2" class="control-label">Free Voucher</label>
                     <input type="text" class="form-control" id="free_voucher" name="free_voucher" placeholder="Free Voucher" data-error="please enter  free voucher." required>
                     <div class="help-block with-errors"></div>
