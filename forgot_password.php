@@ -15,20 +15,91 @@ if (!isset($_POST['submit']))  {
                 //$to = "$dataem";
                 $subject = "User Forgot Password";
 
-                $message = "<html><head><title>User New Password</title></head>
+                $message .= "<style>
+                    .body{
+                width:100% !important; 
+                margin:0 !important; 
+                padding:0 !important; 
+                -webkit-text-size-adjust:none;
+                -ms-text-size-adjust:none; 
+                background-color:#FFFFFF;
+                font-style:normal;
+                }
+                .header{
+                background-color:#c90000;
+                color:white;
+                width:100%;
+                }
+                .content{
+                background-color:#FBFCFC;
+                color:#17202A;
+                width:100%;
+                padding-top:15px;
+                padding-bottom;15px;
+                text-align:justify;
+                font-size:14px;
+                line-height:18px;
+                font-style:normal;
+                }
+                h3{
+                color: #c90000;}
+                .footer{
+                background-color:#c90000;
+                color:white;
+                width:100%;
+                padding-top:9px;
+                padding-bottom:5px;
+                }
+                .logo-responsive{
+                max-width: 100%;
+                height: auto !important;
+                }
+                @media screen and (min-width: 480px) {
+                    .content{
+                    width:50%;
+                    }
+                    .header{
+                    width:50%;
+                    }
+                    .footer{
+                    width:50%;
+                    }
+                    .logo-responsive{
+                    max-width: 100%;
+                    height: auto !important;
+                    }
+                }
+                </style>";
+
+                $message .= "<html><head><title>Loanmamu Forgot Password</title></head>
                 <body>
-                    <table rules='all' style='border-color: #666;' cellpadding='10'>
-                        <tr><td><strong>User Name:  </strong>$user_name</td></tr>
-                        <tr><td><strong>User Password:  </strong>$pwd</td></tr>
-                    </table>
-                </body>
-                </html>
-                ";
+                        <div class='container header'>
+                            <div class='row'>
+                                <div class='col-lg-2 col-md-2 col-sm-2'>
+                                </div>
+                                <div class='col-lg-8 col-md-8 col-sm-8'>
+                                <center><h2>".$getSiteSettingsData['admin_title']."</h2></center>
+                                </div>
+                                <div class='col-lg-2 col-md-2 col-sm-2'>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class='container content'>
+                            <h3>username and Password</h3>
+                            <h4>UserName: </h4><p>".$user_name."</p>
+                            <h4>Password: </h4><p>".$pwd."</p> 
+                        </div>
+                        <div class='container footer'>
+                            
+                        </div>
+                    </body>
+                </html>";
                 // Always set content-type when sending HTML email
                 $headers = "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                 // More headers
-                $headers .= 'From: <info@loanmamu.com>' . "\r\n";
+                $headers .= $getSiteSettingsData['email'];
                 // $headers .= 'Cc: myboss@example.com' . "\r\n";
                     if(mail($to,$subject,$message,$headers)) {
                       echo  "<script>alert('Password Sent To Your Email,Please Check.');window.location.href('login.php');</script>";
