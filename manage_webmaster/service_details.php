@@ -1,16 +1,6 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
 <?php $getServicesData = getAllDataWithActiveRecent('service_details'); $i=1; ?>
 
-<?php $getQry = "SELECT * FROM service_details WHERE status = 0";
-      $excQry = $conn->query($getQry);
-      $getSerId = $excQry->fetch_assoc();
-?>
-<?php 
-      /*$serId = $getSerId['service_id'];
-      $sql = "SELECT * FROM services WHERE id=14";
-      $res = $conn->query($sql);
-      $getData = $res->fetch_assoc();*/
-?>
       <div class="site-content">
         <div class="panel panel-default panel-table">
           <div class="panel-heading">
@@ -22,11 +12,10 @@
               <table class="table table-striped table-bordered dataTable" id="table-1">
                 <thead>
                   <tr>
-                    <th>Id</th>  
-					<!-- <th>Bank Name</th> -->
+                    <th>Id</th>  					
                     <th>Service Name</th>
                     <th>Bank Logo</th>
-					<th>Title1</th>
+					          <th>Title1</th>
                     <th>Title2</th>
                     <th>Title3</th>
                     <th>Title4</th>
@@ -39,7 +28,6 @@
                   <?php while ($row = $getServicesData->fetch_assoc()) { ?>
                   <tr>
                     <td><?php echo $i;?></td>
-					<!-- <td><?php echo $row['bank_name'];?></td> -->  
                     <td><?php $getServices = getDataFromTables('services',$status=NULL,'id',$row['service_id'],$activeStatus=NULL,$activeTop=NULL);
                       $getService = $getServices->fetch_assoc(); echo $getService['name']; ?></td>
                     <td><img src="<?php echo $base_url . 'uploads/service_details_images/'.$row['bank_logo'] ?>" height="100" width="100"/></td>
@@ -65,8 +53,33 @@
                           <div class="modal-body" id="modal_body">
                             <div class="row">
                               <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Bank Name: </div>
-                              <div class="col-sm-6"><?php echo $row['bank_name'];?></div>
+                              <div class="col-sm-4">Service Name: </div>
+                              <div class="col-sm-6"><?php echo $getService['name'];?></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-4">Title1: </div>
+                              <div class="col-sm-6"><?php echo $row['title1_value'];?></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-4">Title2: </div>
+                              <div class="col-sm-6"><?php echo $row['title2_value'];?></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-4">Title3: </div>
+                              <div class="col-sm-6"><?php echo $row['title3_value'];?></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-4">Title4: </div>
+                              <div class="col-sm-6"><?php echo $row['title4_value'];?></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-4">Title5: </div>
+                              <div class="col-sm-6"><?php echo $row['title5_value'];?></div>
                             </div>
                             <div class="row">
                               <div class="col-sm-2"></div>
@@ -75,27 +88,7 @@
                             </div>
                             <div class="row">
                               <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Interest rate Range: </div>
-                              <div class="col-sm-6"><?php echo $row['interest_rate_range'];?></div>
-                            </div>
-                            <div class="row">
-                              <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Process Fee Range: </div>
-                              <div class="col-sm-6"><?php echo $row['process_fee_range'];?></div>
-                            </div>
-                            <div class="row">
-                              <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Loan Amount: </div>
-                              <div class="col-sm-6"><?php echo $row['loan_amount'];?></div>
-                            </div>
-                            <div class="row">
-                              <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Tenture Range: </div>
-                              <div class="col-sm-6"><?php echo $row['tenture_range'];?></div>
-                            </div>
-                            <div class="row">
-                              <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Bank Logo: </div>
+                              <div class="col-sm-4">Logo: </div>
                               <div class="col-sm-6"><img src="<?php echo $base_url . 'uploads/service_details_images/'.$row['bank_logo'] ?>" height="70" width="70"/></div>
                             </div>
                             <div class="row">
