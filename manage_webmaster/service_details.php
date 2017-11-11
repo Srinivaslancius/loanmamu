@@ -14,7 +14,7 @@
                   <tr>
                     <th>Id</th>  					
                     <th>Service Name</th>
-                    <th>Bank Logo</th>
+                    <th>Logo</th>
 					          <th>Title1</th>
                     <th>Title2</th>
                     <th>Title3</th>
