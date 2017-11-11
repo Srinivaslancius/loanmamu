@@ -82,6 +82,7 @@ if (!isset($_POST['submit']))  {
                                                 </div>
                                                 <div class="col-md-5 col-sm-12 col-xs-12">
                                                     <button type="submit" name="submit" class="btn btn-default">Submit</button>
+                                                    <a href="forgot_password.php">forgot password</a>
                                                 </div>
                                                 <div class="col-md-4 col-sm-12 col-xs-12">
                                                 </div>
