@@ -4,6 +4,18 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/widget.css">
     </head>
+    <style>
+   .btn-primary {
+    color: #fff;
+    background-color: #207772;
+    border-color: #207772;
+    }
+    .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+         color: #fff;
+         background-color:  #185955;
+        border-color: #207772;
+    }
+</style>
     <div class="page-header">
         <div class="container">
             <div class="row">
