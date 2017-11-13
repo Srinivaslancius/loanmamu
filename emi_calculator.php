@@ -1,6 +1,10 @@
 <?php include_once "main_header.php"; ?>
 
-
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/widget.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    </head>
     <div class="page-header">
         <div class="container">
             <div class="row">
@@ -24,10 +28,46 @@
                 <div class="col-md-12">
                     <div class="wrapper-content bg-white">
                         <div class="about-section pinside40">
-                            <div class="row">                                
-                              <div class="text-center section-space50">
-                                  <!-- EMI Calculator Widget START --><script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script><div id="ecww-widgetwrapper" style="min-width:250px;width:100%;"><div id="ecww-widget" style="position:relative;padding-top:0;padding-bottom:280px;height:0;overflow:hidden;"></div><div id="ecww-more" style="background:#333;font:normal 13px/1 Helvetica, Arial, Verdana, Sans-serif;padding:10px 0;color:#FFF;text-align:center;width:100%;clear:both;margin:0;clear:both;float:left;"></div></div><!-- EMI Calculator Widget END -->
-                              </div>                                
+                            <div id="ecww-widget-iframeinner">
+                                 <form id="ecww-formwrapper" class="col-xs-12 col-sm-4 no-pad">
+                                    <h2 id="ecww-header">EMI Calculator</h2>
+                                    <div id="ecww-form">
+                                       <div class="form-group">
+                                          <label for="ecww-loanamount" class="control-label">Loan Amount</label> 
+                                          <div class="input-group"><span class="ecww-addon input-group-addon"><span class="glyphicon glyphicon-rupee"></span></span> <input class="form-control ecww-userinput" id="ecww-loanamount" value="3,00,000" tabindex="1" placeholder="Loan Amount" type="text"> </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <label for="ecww-loaninterest" class="control-label">Interest Rate</label> 
+                                          <div class="input-group"> <span class="ecww-addon input-group-addon"><span class="glyphicon glyphicon-percent"></span></span> <input class="form-control ecww-userinput" id="ecww-loaninterest" value="12" tabindex="2" placeholder="Interest Rate" type="text"> </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <label for="ecww-loanterm" class="control-label">Loan Tenure</label> 
+                                          <div class="form-group">
+                                             <div class="ecww-tenure-choice">
+                                                <div class="btn-group" data-toggle="buttons"> <label class="btn btn-primary"> <input name="ecww-loantenure" id="ecww-loanyears" tabindex="4" autocomplete="off" type="radio">Yr </label> <label class="btn btn-primary active"> <input name="ecww-loantenure" id="ecww-loanmonths" tabindex="5" autocomplete="off" type="radio" checked="checked">Mo </label></div>
+                                             </div>
+                                             <div class="ecww-inline-input-group">
+                                                <div class="input-group"> <span class="ecww-addon input-group-addon"><span class="glyphicon glyphicon-time"></span></span> <input class="form-control ecww-userinput" id="ecww-loanterm" value="12" tabindex="3" placeholder="Loan Tenure" type="text"> </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </form>
+                             <div id="ecww-summary" class="col-xs-12 col-sm-4 no-pad">
+                                <div id="ecww-monthlypayment">
+                                   <h4>Loan EMI</h4>
+                                   <p>₹ 26,655</p>
+                                </div>
+                                <div id="ecww-totalinterest">
+                                   <h4>Total Interest Payable</h4>
+                                   <p>₹ 19,856</p>
+                                </div>
+                                <div id="ecww-totalamount">
+                                   <h4>Total of Payments<br>(Principal + Interest)</h4>
+                                   <p>₹ 3,19,856</p>
+                                </div>
+                             </div>
                             </div>
                         </div>
                         <div class="section-space80 bg-white">
@@ -63,6 +103,7 @@
     <!-- /.tiny footer -->
     <!-- back to top icon -->
     <a href="#0" class="cd-top" title="Go to top">Top</a>
+    <script src="js/emicalc-lib.js" type="text/javascript"></script><script src="js/emicalc-main.js" type="text/javascript"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
