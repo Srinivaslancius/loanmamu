@@ -3,7 +3,6 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/widget.css">
-        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     </head>
     <div class="page-header">
         <div class="container">
