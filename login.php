@@ -15,7 +15,8 @@ if (!isset($_POST['submit']))  {
                     
                     $_SESSION['user_login_session_id'] =  $row['id'];
                     $_SESSION['user_login_session_name'] = $row['user_name'];
-                    echo "<script>history.go(-2);</script>";
+                    header('location:index.php');
+                    //echo "<script>history.go(-2);</script>";
                 } else {
                    
                     echo "<script type='text/javascript'>alert('Email or Password are Wrong !');window.location.href='login.php'</script>";
