@@ -4,9 +4,12 @@
 if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['mobile']) && !empty($_POST['message']))  {
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $phone = $_POST['phone'];
+        $phone = $_POST['mobile'];
         $message = $_POST['message'];
-    
+        $created_at = date("Y-m-d h:i:s");
+        $sql = "INSERT INTO customer_enqueries (`customer_name`,`customer_email`,`customer_mobile`,`customer_feedback`,`created_at`) VALUES ('$name','$email','$phone','$message','$created_at')";
+        $conn->query($sql);
+               
 $dataem = $getSiteSettingsData['email'];
 //$to = "srinivas@lanciussolutions.com";
 $to = "$dataem";
@@ -203,4 +206,5 @@ $getContent = $getContentData->fetch_assoc(); ?>
     
 </body>
 </html>
+
 
